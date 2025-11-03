@@ -192,12 +192,12 @@ body {
 
 /* Header/Navigation */
 .main-header {
-    background: var(--white);
+    background: var(--card-bg);
     box-shadow: var(--shadow-md);
     position: sticky;
     top: 0;
     z-index: 100;
-    transition: box-shadow 0.3s, background 0.3s ease;
+    transition: box-shadow 0.3s, background 0.3s ease, color 0.3s ease;
 }
 
 /* Theme Toggle */
