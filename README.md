@@ -2,16 +2,15 @@
 
 ## Site Structure
 
-
 ```
 HA-Solutions/
 ├── index.html (Homepage)
 ├── federal.html
 ├── contact.html
 ├── css/
-│   └── styles.css (Global styles)
+│   └── styles.css (Enhanced global styles - 800+ lines)
 ├── js/
-│   └── script.js (Global JavaScript)
+│   └── script.js (Modern JavaScript - 400+ lines)
 ├── companies/
 │   └── index.html
 ├── industry/
