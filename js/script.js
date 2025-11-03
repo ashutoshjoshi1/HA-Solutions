@@ -2,6 +2,51 @@
 (function() {
     'use strict';
 
+    // ==================== THEME TOGGLE FUNCTIONALITY ====================
+    (function() {
+        // Get theme from localStorage or default to light
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Theme toggle functionality
+        function initThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                // Update icon based on current theme
+                updateThemeIcon(currentTheme);
+                
+                themeToggle.addEventListener('click', function() {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    
+                    // Apply new theme
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    
+                    // Update icon
+                    updateThemeIcon(newTheme);
+                    
+                    console.log('Theme switched to:', newTheme);
+                });
+            }
+        }
+        
+        function updateThemeIcon(theme) {
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                const icon = theme === 'dark' ? '🌙' : '☀️';
+                themeToggle.innerHTML = `<span class="${theme === 'dark' ? 'moon' : 'sun'}">${icon}</span>`;
+            }
+        }
+        
+        // Initialize on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initThemeToggle);
+        } else {
+            initThemeToggle();
+        }
+    })();
+
     // ==================== POPUP FUNCTIONALITY ====================
     function openPopup() {
         const popup = document.getElementById('searchPopup');
