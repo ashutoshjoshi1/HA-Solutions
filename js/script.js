@@ -8,12 +8,36 @@
         const currentTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', currentTheme);
         
+        // Update logo based on theme
+        function updateLogo(theme) {
+            const logoImages = document.querySelectorAll('.logo img, .logo-link img');
+            logoImages.forEach(img => {
+                if (!img) return;
+                
+                let currentSrc = img.getAttribute('src');
+                if (!currentSrc) return;
+                
+                if (theme === 'dark') {
+                    // Switch to inverted logo if not already using it
+                    if (currentSrc.includes('main-logo.png') && !currentSrc.includes('main-logo_inverted.png')) {
+                        img.setAttribute('src', currentSrc.replace('main-logo.png', 'main-logo_inverted.png'));
+                    }
+                } else {
+                    // Switch to normal logo if currently using inverted
+                    if (currentSrc.includes('main-logo_inverted.png')) {
+                        img.setAttribute('src', currentSrc.replace('main-logo_inverted.png', 'main-logo.png'));
+                    }
+                }
+            });
+        }
+        
         // Theme toggle functionality
         function initThemeToggle() {
             const themeToggle = document.getElementById('theme-toggle');
             if (themeToggle) {
-                // Update icon based on current theme
+                // Update icon and logo based on current theme
                 updateThemeIcon(currentTheme);
+                updateLogo(currentTheme);
                 
                 themeToggle.addEventListener('click', function() {
                     const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -23,8 +47,9 @@
                     document.documentElement.setAttribute('data-theme', newTheme);
                     localStorage.setItem('theme', newTheme);
                     
-                    // Update icon
+                    // Update icon and logo
                     updateThemeIcon(newTheme);
+                    updateLogo(newTheme);
                     
                     console.log('Theme switched to:', newTheme);
                 });

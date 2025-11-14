@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HA Solutions - Changing the Way the World Develops Technology Talent">
-    <title>HA Solutions - Technology Talent Development</title>
+    <meta name="description" content="HA Solutions - Career Opportunities - Join Our Team">
+    <title>Careers - HA Solutions</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -28,7 +28,6 @@
                 <a href="index.html" class="logo-link">
                     <img src="img/main-logo.png" width="60" height="60" alt="HA Solutions Logo" />
                 </a>
-               <!--<a href="index.html" class="logo-link">HA Solutions</a>--> 
             </div>
             <div style="display: flex; align-items: center; gap: 20px;">
                 <ul class="nav-menu">
@@ -94,47 +93,163 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="main-content" class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Changing the Way the World Develops Technology Talent</h1>
-            <p class="hero-subtitle">
-                HA Solutions is a leading workforce transformation company advancing AI-driven talent development to power the growth of the world's most trusted brands.
-            </p>
-            <div class="hero-buttons">
-                <a href="companies/index.html" class="btn btn-primary">Our Services</a>
+    <section id="main-content" class="careers-hero-section">
+        <div class="careers-hero-content">
+            <h2 class="careers-hero-subtitle">JOIN A WINNING TEAM</h2>
+            <h1 class="careers-hero-title">Careers</h1>
+        </div>
+    </section>
+
+    <!-- Careers Section with Sidebar -->
+    <section class="careers-section">
+        <div class="careers-container">
+            <!-- Sidebar Filters -->
+            <aside class="careers-sidebar">
+                <div class="filter-section">
+                    <h3 class="filter-title">Keyword Search</h3>
+                    <div class="search-box">
+                        <input type="text" id="keywordSearch" class="search-input" placeholder="Keyword Search">
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter by Category</h3>
+                    <div id="categoryFilters" class="filter-list">
+                        <!-- Categories will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter by State</h3>
+                    <div id="stateFilters" class="filter-list">
+                        <!-- States will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter by City</h3>
+                    <div id="cityFilters" class="filter-list">
+                        <!-- Cities will be populated by JavaScript -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="careers-main">
+                <div class="jobs-header">
+                    <h2 class="jobs-title">Open Positions (<span id="jobCount">0</span>)</h2>
+                </div>
+                
+                <!-- Jobs Container -->
+                <div id="jobsContainer" class="jobs-container">
+                    <div class="loading-message">Loading job openings...</div>
+                </div>
+
+                <!-- No Jobs Message -->
+                <div id="noJobsMessage" class="no-jobs-message hidden">
+                    <p>No job openings match your filters. Please try different criteria.</p>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Embedded Jobs Data (for offline/local file access) -->
+    <script type="application/json" id="jobs-data">
+    {
+      "jobs": [
+        {
+          "id": 1,
+          "title": "Senior Software Engineer",
+          "category": "Software Development",
+          "location": "San Francisco, CA",
+          "state": "California",
+          "city": "San Francisco",
+          "type": "Hybrid",
+          "date": "2025-01-15",
+          "description": "We are seeking a Senior Software Engineer to join our dynamic team. You will be responsible for designing, developing, and maintaining scalable software solutions. The ideal candidate has 5+ years of experience in full-stack development, strong problem-solving skills, and experience with cloud technologies."
+        },
+        {
+          "id": 2,
+          "title": "DevOps Engineer",
+          "category": "Cloud",
+          "location": "Remote",
+          "state": "Remote",
+          "city": "Remote",
+          "type": "Remote",
+          "date": "2025-01-14",
+          "description": "Join our DevOps team to help build and maintain our infrastructure. You'll work with cutting-edge technologies including Kubernetes, Docker, AWS, and CI/CD pipelines. We're looking for someone with strong automation skills and experience in cloud infrastructure management."
+        },
+        {
+          "id": 3,
+          "title": "Data Scientist",
+          "category": "Software Development",
+          "location": "New York, NY",
+          "state": "New York",
+          "city": "New York",
+          "type": "On-site",
+          "date": "2025-01-13",
+          "description": "We're looking for a Data Scientist to help drive data-driven decision making. You'll work with large datasets, build predictive models, and collaborate with cross-functional teams. Experience with Python, machine learning frameworks, and statistical analysis is required."
+        },
+        {
+          "id": 4,
+          "title": "Frontend Developer",
+          "category": "Software Development",
+          "location": "Austin, TX",
+          "state": "Texas",
+          "city": "Austin",
+          "type": "Hybrid",
+          "date": "2025-01-12",
+          "description": "Seeking a talented Frontend Developer to create beautiful and intuitive user interfaces. You'll work with modern frameworks like React, Vue, or Angular, and collaborate closely with designers and backend developers. Strong CSS and JavaScript skills are essential."
+        },
+        {
+          "id": 5,
+          "title": "Cloud Solutions Architect",
+          "category": "Cloud",
+          "location": "Seattle, WA",
+          "state": "Washington",
+          "city": "Seattle",
+          "type": "Remote",
+          "date": "2025-01-11",
+          "description": "We need a Cloud Solutions Architect to design and implement scalable cloud infrastructure. You'll work with AWS, Azure, or GCP to create robust solutions for our clients. Strong architectural skills and cloud certifications are preferred."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Legal/EEOC Section -->
+    <section class="careers-legal-section">
+        <div class="container">
+            <h2 class="legal-section-title">Applicants and Employees Have Rights Under Federal Employment Laws</h2>
+            
+            <div class="legal-links">
+                <a href="https://www.dol.gov/agencies/ofccp/posters" target="_blank" rel="noopener noreferrer" class="legal-link">
+                    Pay Transparency Nondiscrimination Provision
+                </a>
+                <a href="https://www.eeoc.gov/poster" target="_blank" rel="noopener noreferrer" class="legal-link">
+                    EEOC Know Your Rights
+                </a>
             </div>
+
+            <p class="accommodation-text">
+                If you have a disability and would like to request an accommodation to apply for a position, please contact us at <a href="mailto:humanresources@hasolutions.com">humanresources@hasolutions.com</a>.
+            </p>
+
+            <h3 class="eoe-statement">WE ARE AN EQUAL OPPORTUNITY EMPLOYER</h3>
         </div>
     </section>
 
-    <!-- Why Work with Section -->
-    <section class="why-section">
+    <!-- Contact Section -->
+    <section class="careers-contact-section">
         <div class="container">
-            <h2 class="section-title">Stack the deck in your favor with HA Solutions</h2>
-            <p class="section-description">
-                Our proprietary talent development model builds skills-validated engineers stacked for speed, built to accelerate AI adoption, and proven for enterprise success.
-            </p>
-            <a href="about/about.html" class="link-button">Why Work with HA Solutions</a>
-        </div>
-    </section>
-
-    <!-- Transformation Section -->
-    <section class="transformation-section">
-        <div class="container">
-            <h2 class="section-title">Transforming Organizations by Delivering Talent with the Exact Job Skills Needed</h2>
-            <p class="section-description">
-                With our hire, train, deploy solution, enterprises get the insider advantage — access to talent that currently doesn't exist. Organizations gain a powerful tech talent pipeline and a new source of custom-skilled professionals.
-            </p>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Build Your Team</h3>
-                    <p>Find your ideal tech professionals. Partner with us and we'll hire, train, and deploy talent for your project or technical initiative — with no risk to you.</p>
-                    <a href="contact.html" class="btn btn-primary">Build Your Team</a>
-                </div>
-                <div class="card">
-                    <h3>Find a Job</h3>
-                    <p>Don't quite have the exact skills or experience employers want? Apply to HA Solutions and we'll teach you exactly what you need – along with a job at a F500 company or government agency.</p>
-                    <a href="careers.html" class="btn btn-primary">Find a Job</a>
-                </div>
+            <h2 class="contact-section-title">More Questions?</h2>
+            <h3 class="contact-section-subtitle">CONTACT US</h3>
+            <div class="contact-info">
+                <p class="contact-address">
+                    <a href="mailto:info@hasolutions.com">info@hasolutions.com</a>
+                </p>
+                <p class="contact-phone">
+                    <a href="tel:+15551234567">(555) 123-4567</a>
+                </p>
             </div>
         </div>
     </section>
@@ -200,6 +315,7 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/careers.js"></script>
 </body>
 </html>
 

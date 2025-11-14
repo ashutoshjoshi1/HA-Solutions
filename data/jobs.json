@@ -1,0 +1,60 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Senior Software Engineer",
+      "category": "Software Development",
+      "location": "San Francisco, CA",
+      "state": "California",
+      "city": "San Francisco",
+      "type": "Hybrid",
+      "date": "2025-01-15",
+      "description": "We are seeking a Senior Software Engineer to join our dynamic team. You will be responsible for designing, developing, and maintaining scalable software solutions. The ideal candidate has 5+ years of experience in full-stack development, strong problem-solving skills, and experience with cloud technologies."
+    },
+    {
+      "id": 2,
+      "title": "DevOps Engineer",
+      "category": "Cloud",
+      "location": "Remote",
+      "state": "Remote",
+      "city": "Remote",
+      "type": "Remote",
+      "date": "2025-01-14",
+      "description": "Join our DevOps team to help build and maintain our infrastructure. You'll work with cutting-edge technologies including Kubernetes, Docker, AWS, and CI/CD pipelines. We're looking for someone with strong automation skills and experience in cloud infrastructure management."
+    },
+    {
+      "id": 3,
+      "title": "Data Scientist",
+      "category": "Software Development",
+      "location": "New York, NY",
+      "state": "New York",
+      "city": "New York",
+      "type": "On-site",
+      "date": "2025-01-13",
+      "description": "We're looking for a Data Scientist to help drive data-driven decision making. You'll work with large datasets, build predictive models, and collaborate with cross-functional teams. Experience with Python, machine learning frameworks, and statistical analysis is required."
+    },
+    {
+      "id": 4,
+      "title": "Frontend Developer",
+      "category": "Software Development",
+      "location": "Austin, TX",
+      "state": "Texas",
+      "city": "Austin",
+      "type": "Hybrid",
+      "date": "2025-01-12",
+      "description": "Seeking a talented Frontend Developer to create beautiful and intuitive user interfaces. You'll work with modern frameworks like React, Vue, or Angular, and collaborate closely with designers and backend developers. Strong CSS and JavaScript skills are essential."
+    },
+    {
+      "id": 5,
+      "title": "Cloud Solutions Architect",
+      "category": "Cloud",
+      "location": "Seattle, WA",
+      "state": "Washington",
+      "city": "Seattle",
+      "type": "Remote",
+      "date": "2025-01-11",
+      "description": "We need a Cloud Solutions Architect to design and implement scalable cloud infrastructure. You'll work with AWS, Azure, or GCP to create robust solutions for our clients. Strong architectural skills and cloud certifications are preferred."
+    }
+  ]
+}
+

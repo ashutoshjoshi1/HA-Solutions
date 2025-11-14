@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HA Solutions - Changing the Way the World Develops Technology Talent">
-    <title>HA Solutions - Technology Talent Development</title>
+    <meta name="description" content="HA Solutions - Apply for Career Opportunities">
+    <title>Apply for Position - HA Solutions</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -28,7 +28,6 @@
                 <a href="index.html" class="logo-link">
                     <img src="img/main-logo.png" width="60" height="60" alt="HA Solutions Logo" />
                 </a>
-               <!--<a href="index.html" class="logo-link">HA Solutions</a>--> 
             </div>
             <div style="display: flex; align-items: center; gap: 20px;">
                 <ul class="nav-menu">
@@ -94,47 +93,61 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="main-content" class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Changing the Way the World Develops Technology Talent</h1>
-            <p class="hero-subtitle">
-                HA Solutions is a leading workforce transformation company advancing AI-driven talent development to power the growth of the world's most trusted brands.
-            </p>
-            <div class="hero-buttons">
-                <a href="companies/index.html" class="btn btn-primary">Our Services</a>
-            </div>
+    <section id="main-content" class="careers-hero-section">
+        <div class="careers-hero-content">
+            <h1 class="careers-hero-title">Apply for Position</h1>
         </div>
     </section>
 
-    <!-- Why Work with Section -->
-    <section class="why-section">
+    <!-- Application Form Section -->
+    <section class="application-section">
         <div class="container">
-            <h2 class="section-title">Stack the deck in your favor with HA Solutions</h2>
-            <p class="section-description">
-                Our proprietary talent development model builds skills-validated engineers stacked for speed, built to accelerate AI adoption, and proven for enterprise success.
-            </p>
-            <a href="about/about.html" class="link-button">Why Work with HA Solutions</a>
-        </div>
-    </section>
+            <div class="application-form-container">
+                <div class="job-info-box" id="jobInfoBox">
+                    <h3>Position: <span id="jobTitleDisplay">General Application</span></h3>
+                </div>
 
-    <!-- Transformation Section -->
-    <section class="transformation-section">
-        <div class="container">
-            <h2 class="section-title">Transforming Organizations by Delivering Talent with the Exact Job Skills Needed</h2>
-            <p class="section-description">
-                With our hire, train, deploy solution, enterprises get the insider advantage — access to talent that currently doesn't exist. Organizations gain a powerful tech talent pipeline and a new source of custom-skilled professionals.
-            </p>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Build Your Team</h3>
-                    <p>Find your ideal tech professionals. Partner with us and we'll hire, train, and deploy talent for your project or technical initiative — with no risk to you.</p>
-                    <a href="contact.html" class="btn btn-primary">Build Your Team</a>
-                </div>
-                <div class="card">
-                    <h3>Find a Job</h3>
-                    <p>Don't quite have the exact skills or experience employers want? Apply to HA Solutions and we'll teach you exactly what you need – along with a job at a F500 company or government agency.</p>
-                    <a href="careers.html" class="btn btn-primary">Find a Job</a>
-                </div>
+                <form id="applicationForm" class="application-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resume">Upload Resume <span class="required">*</span></label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                            <label for="resume" class="file-upload-label">
+                                <span class="file-upload-text">Choose file or drag it here</span>
+                                <span class="file-upload-button">Browse</span>
+                            </label>
+                            <div class="file-name-display" id="fileNameDisplay"></div>
+                        </div>
+                        <small class="form-help">Accepted formats: PDF, DOC, DOCX (Max 5MB)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="coverLetter">Cover Letter (Optional)</label>
+                        <textarea id="coverLetter" name="coverLetter" rows="6" placeholder="Tell us why you're interested in this position..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                        <a href="careers.html" class="btn btn-secondary">Back to Careers</a>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -200,6 +213,7 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/careers-apply.js"></script>
 </body>
 </html>
 
