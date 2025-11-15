@@ -1,0 +1,98 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}College Partnerships - HA Solutions{% endblock %}
+{% block meta_description %}HA Solutions - College Partnerships{% endblock %}
+
+{% block content %}
+    <section id="main-content" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Our College Partnerships</h1>
+            <p class="hero-subtitle">
+                Cultivating high-potential talent from leading universities through strategic partnerships.
+            </p>
+        </div>
+    </section>
+
+    
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title">University & College Partnerships</h2>
+            <p class="section-description">
+                We partner with colleges and universities to identify high-potential students and recent graduates, providing them with advanced training and pathways to technology careers with leading employers.
+            </p>
+        </div>
+    </section>
+
+    <section class="transformation-section">
+        <div class="container">
+            <h2 class="section-title">Learn More</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Strategic Partnerships</h3>
+                    <p>Formal agreements with universities to create internship programs, career pathways, and training opportunities.</p>
+                </div>
+                <div class="card">
+                    <h3>On-Campus Recruiting</h3>
+                    <p>Regular visits to partner colleges for information sessions, workshops, and application intake.</p>
+                </div>
+                <div class="card">
+                    <h3>Faculty Collaboration</h3>
+                    <p>Working with university faculty to align our training with industry needs and curriculum enhancement.</p>
+                </div>
+                <div class="card">
+                    <h3>Student Organizations</h3>
+                    <p>Partnerships with computer science clubs, coding bootcamps, and technology student groups.</p>
+                </div>
+                <div class="card">
+                    <h3>Graduate Programs</h3>
+                    <p>Specialized tracks for recent graduates transitioning from academic studies to professional technology roles.</p>
+                </div>
+                <div class="card">
+                    <h3>Alumni Network</h3>
+                    <p>Growing network of HA Solutions alumni supporting current students and facilitating referrals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insights-section">
+        <div class="container">
+            <h2 class="section-title">Key Highlights</h2>
+            <p class="section-description">
+                Facts and figures that define HA Solutions.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Partner Schools</h3>
+                    <p>Relationships with 50+ colleges and universities across the United States.</p>
+                </div>
+                <div class="card">
+                    <h3>Recruitment Events</h3>
+                    <p>100+ on-campus visits annually for workshops, career fairs, and information sessions.</p>
+                </div>
+                <div class="card">
+                    <h3>Placement Rate</h3>
+                    <p>98% placement success rate for candidates from partner institutions.</p>
+                </div>
+                <div class="card">
+                    <h3>Benefits</h3>
+                    <p>Exclusive opportunities for partner institution students including early application access and interview preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Ready to Get Started?</h2>
+            <p class="section-description">
+                Connect with HA Solutions to discuss your specific needs.
+            </p>
+            <div class="cta-buttons">
+                <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

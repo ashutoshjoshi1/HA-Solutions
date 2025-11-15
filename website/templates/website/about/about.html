@@ -1,0 +1,98 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}About HA Solutions - HA Solutions{% endblock %}
+{% block meta_description %}HA Solutions - About HA Solutions{% endblock %}
+
+{% block content %}
+    <section id="main-content" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">About HA Solutions</h1>
+            <p class="hero-subtitle">
+                Learn about our mission to transform organizations by delivering talent with the exact job skills needed.
+            </p>
+        </div>
+    </section>
+
+    
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title">Our Mission & Vision</h2>
+            <p class="section-description">
+                HA Solutions was founded on the principle that talent exists everywhere, but opportunity does not. We bridge the gap between motivated individuals seeking technology careers and organizations needing skilled professionals.
+            </p>
+        </div>
+    </section>
+
+    <section class="transformation-section">
+        <div class="container">
+            <h2 class="section-title">Learn More</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Our Mission</h3>
+                    <p>To create pathways to technology careers by providing free, comprehensive training and guaranteed job placement in Fortune 500 companies and government agencies.</p>
+                </div>
+                <div class="card">
+                    <h3>Our Vision</h3>
+                    <p>A future where every motivated individual has access to the training and opportunities needed to succeed in technology, regardless of their background or prior experience.</p>
+                </div>
+                <div class="card">
+                    <h3>The Problem We Solve</h3>
+                    <p>The technology skills gap leaves millions of job openings unfilled while talented individuals lack the specific skills employers demand.</p>
+                </div>
+                <div class="card">
+                    <h3>Our Unique Approach</h3>
+                    <p>We eliminate risk for both candidates and employers through our hire-train-deploy model - training people in the exact skills needed before placement.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact & Results</h3>
+                    <p>Over 95% placement rate with industry-leading satisfaction scores from both candidates and employers.</p>
+                </div>
+                <div class="card">
+                    <h3>Core Values</h3>
+                    <p>Excellence, integrity, diversity, and a commitment to transforming lives through technology careers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insights-section">
+        <div class="container">
+            <h2 class="section-title">Key Highlights</h2>
+            <p class="section-description">
+                Facts and figures that define HA Solutions.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Founded</h3>
+                    <p>Established to democratize access to technology careers and close the skills gap.</p>
+                </div>
+                <div class="card">
+                    <h3>Growth</h3>
+                    <p>Rapidly expanding our training programs, technology partnerships, and employer network.</p>
+                </div>
+                <div class="card">
+                    <h3>Diversity</h3>
+                    <p>Committed to building diverse technology teams that reflect the communities we serve.</p>
+                </div>
+                <div class="card">
+                    <h3>Innovation</h3>
+                    <p>Continuously evolving our training programs to match the latest industry demands and emerging technologies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Ready to Get Started?</h2>
+            <p class="section-description">
+                Connect with HA Solutions to discuss your specific needs.
+            </p>
+            <div class="cta-buttons">
+                <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

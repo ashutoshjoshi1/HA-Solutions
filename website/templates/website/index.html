@@ -1,0 +1,51 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section id="main-content" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Changing the Way the World Develops Technology Talent</h1>
+            <p class="hero-subtitle">
+                HA Solutions is a leading workforce transformation company advancing AI-driven talent development to power the growth of the world's most trusted brands.
+            </p>
+            <div class="hero-buttons">
+                <a href="{% url 'companies_index' %}" class="btn btn-primary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work with Section -->
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title">Stack the deck in your favor with HA Solutions</h2>
+            <p class="section-description">
+                Our proprietary talent development model builds skills-validated engineers stacked for speed, built to accelerate AI adoption, and proven for enterprise success.
+            </p>
+            <a href="{% url 'about' %}" class="link-button">Why Work with HA Solutions</a>
+        </div>
+    </section>
+
+    <!-- Transformation Section -->
+    <section class="transformation-section">
+        <div class="container">
+            <h2 class="section-title">Transforming Organizations by Delivering Talent with the Exact Job Skills Needed</h2>
+            <p class="section-description">
+                With our hire, train, deploy solution, enterprises get the insider advantage — access to talent that currently doesn't exist. Organizations gain a powerful tech talent pipeline and a new source of custom-skilled professionals.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Build Your Team</h3>
+                    <p>Find your ideal tech professionals. Partner with us and we'll hire, train, and deploy talent for your project or technical initiative — with no risk to you.</p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary">Build Your Team</a>
+                </div>
+                <div class="card">
+                    <h3>Find a Job</h3>
+                    <p>Don't quite have the exact skills or experience employers want? Apply to HA Solutions and we'll teach you exactly what you need – along with a job at a F500 company or government agency.</p>
+                    <a href="{% url 'careers' %}" class="btn btn-primary">Find a Job</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

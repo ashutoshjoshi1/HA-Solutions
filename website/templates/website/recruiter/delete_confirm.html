@@ -1,0 +1,35 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Delete Job - HA Solutions{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 600px; margin: 40px auto; padding: 0 20px;">
+    <div style="margin-bottom: 30px;">
+        <a href="{% url 'recruiter_dashboard' %}" style="color: var(--primary-color); text-decoration: none;">← Back to Dashboard</a>
+    </div>
+    
+    <div style="background: var(--card-bg); border-radius: 10px; padding: 40px; box-shadow: var(--shadow-sm); border: 2px solid #dc3545;">
+        <h2 style="color: #dc3545; margin-bottom: 20px;">Confirm Deletion</h2>
+        <p style="color: var(--text-dark); margin-bottom: 20px;">
+            Are you sure you want to delete this job posting? This action cannot be undone.
+        </p>
+        
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 5px; margin-bottom: 30px;">
+            <p style="margin: 5px 0; color: var(--text-dark);"><strong>Job Number:</strong> {{ job.job_number }}</p>
+            <p style="margin: 5px 0; color: var(--text-dark);"><strong>Title:</strong> {{ job.title }}</p>
+            <p style="margin: 5px 0; color: var(--text-dark);"><strong>Category:</strong> {{ job.category }}</p>
+            <p style="margin: 5px 0; color: var(--text-dark);"><strong>Location:</strong> {{ job.location }}</p>
+        </div>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div style="display: flex; gap: 10px;">
+                <button type="submit" class="btn" style="background: #dc3545; color: white; padding: 12px 24px; border-radius: 5px; border: none; cursor: pointer;">Yes, Delete Job</button>
+                <a href="{% url 'recruiter_dashboard' %}" class="btn" style="background: #6c757d; color: white; text-decoration: none; padding: 12px 24px; border-radius: 5px;">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

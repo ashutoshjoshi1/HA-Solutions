@@ -1,0 +1,82 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Candidates - HA Solutions{% endblock %}
+{% block meta_description %}HA Solutions - Start Your Tech Career{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section id="main-content" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Start Your Tech Career with HA Solutions</h1>
+            <p class="hero-subtitle">
+                Don't have the exact skills employers want? We'll teach you exactly what you need and place you in a F500 company or government agency.
+            </p>
+        </div>
+    </section>
+
+    <!-- Who We Help -->
+    <section id="help" class="why-section">
+        <div class="container">
+            <h2 class="section-title">Who We Help</h2>
+            <p class="section-description">
+                At HA Solutions, we believe talent is diverse and opportunity should be too. We find talented people and train them for exciting technology careers.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Career Changers</h3>
+                    <p>Transition into technology from any background with our comprehensive training programs.</p>
+                </div>
+                <div class="card">
+                    <h3>Recent Graduates</h3>
+                    <p>Turn your degree into a tech career with specialized training and guaranteed placement.</p>
+                </div>
+                <div class="card">
+                    <h3>Veterans & Military</h3>
+                    <p>Leverage your military experience in a rewarding technology career.</p>
+                    <a href="{% url 'candidates_veterans' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="insights-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose HA Solutions</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Zero Risk</h3>
+                    <p>Training is completely free with no upfront costs or loans</p>
+                </div>
+                <div class="card">
+                    <h3>Custom Skills</h3>
+                    <p>Learn exactly what employers in your field need</p>
+                </div>
+                <div class="card">
+                    <h3>Industry Experts</h3>
+                    <p>Learn from professionals with real-world experience</p>
+                </div>
+                <div class="card">
+                    <h3>Support Network</h3>
+                    <p>Mentorship and career guidance throughout your journey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Ready to Transform Your Career?</h2>
+            <p class="section-description">
+                Apply today and take the first step toward an exciting technology career.
+            </p>
+            <div class="cta-buttons">
+                <a href="{% url 'careers' %}" class="btn btn-primary">Apply Now</a>
+                <a href="{% url 'contact' %}" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

@@ -285,25 +285,36 @@
         const category = job.category || 'Other';
         const jobNumber = job.job_number || '';
         
+        // Strip HTML tags from description for the listing
+        let plainDescription = job.description || '';
+        if (plainDescription) {
+            // Create a temporary div to strip HTML
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = plainDescription;
+            plainDescription = tempDiv.textContent || tempDiv.innerText || '';
+        }
+        
         return `
             <div class="job-card" data-job-id="${job.id}">
                 <a href="/careers/job/${job.id}/" class="job-card-link">
                     <div class="job-card-header">
-                        <h3 class="job-title">${escapeHtml(job.title)}</h3>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            ${jobNumber ? `<span class="job-number" style="font-size: 11px; color: #666; font-weight: normal;">${escapeHtml(jobNumber)}</span>` : ''}
-                            <span class="job-date">${formattedDate}</span>
+                        <div style="flex: 1;">
+                            <h3 class="job-title">${escapeHtml(job.title)}</h3>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+                                ${jobNumber ? `<span class="job-number" style="font-size: 11px; color: #666; font-weight: normal;">${escapeHtml(jobNumber)}</span>` : ''}
+                                <span class="job-date">${formattedDate}</span>
+                            </div>
                         </div>
+                        ${job.location ? `
+                            <div class="job-location-header" style="text-align: right;">
+                                <div style="font-size: 12px; color: #666; margin-bottom: 3px;">Location</div>
+                                <div style="font-weight: 500; color: var(--text-dark);">${escapeHtml(job.location)}</div>
+                            </div>
+                        ` : ''}
                     </div>
                     <div class="job-category">${escapeHtml(category)}</div>
-                    ${job.location && job.location !== 'Remote' ? `
-                        <div class="job-location-info">
-                            <span class="location-icon">📍</span>
-                            <span>${escapeHtml(job.location)}</span>
-                        </div>
-                    ` : ''}
                     <div class="job-description">
-                        <p>${escapeHtml(job.description)}</p>
+                        <p>${escapeHtml(plainDescription)}</p>
                     </div>
                 </a>
                 <div class="job-actions">

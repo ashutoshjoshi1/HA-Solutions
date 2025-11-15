@@ -1,0 +1,92 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Careers - HA Solutions{% endblock %}
+{% block meta_description %}HA Solutions - Career Opportunities - Join Our Team{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section id="main-content" class="careers-hero-section">
+        <div class="careers-hero-content">
+            <h2 class="careers-hero-subtitle">JOIN A WINNING TEAM</h2>
+            <h1 class="careers-hero-title">Careers</h1>
+        </div>
+    </section>
+
+    <!-- Careers Section with Sidebar -->
+    <section class="careers-section">
+        <div class="careers-container">
+            <!-- Sidebar Filters -->
+            <aside class="careers-sidebar">
+                <div class="filter-section">
+                    <h3 class="filter-title">Keyword Search</h3>
+                    <div class="search-box">
+                        <input type="text" id="keywordSearch" class="search-input" placeholder="Keyword Search">
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter by Category</h3>
+                    <div id="categoryFilters" class="filter-list">
+                        <!-- Categories will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter by State</h3>
+                    <div id="stateFilters" class="filter-list">
+                        <!-- States will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter by City</h3>
+                    <div id="cityFilters" class="filter-list">
+                        <!-- Cities will be populated by JavaScript -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="careers-main">
+                <div class="jobs-header">
+                    <h2 class="jobs-title">Open Positions (<span id="jobCount">0</span>)</h2>
+                </div>
+                
+                <!-- Jobs Container -->
+                <div id="jobsContainer" class="jobs-container">
+                    <div class="loading-message">Loading job openings...</div>
+                </div>
+
+                <!-- No Jobs Message -->
+                <div id="noJobsMessage" class="no-jobs-message hidden">
+                    <p>No job openings match your filters. Please try different criteria.</p>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Legal/EEOC Section -->
+    <section class="careers-legal-section">
+        <div class="container">
+            <h2 class="legal-section-title">Equal Employment Opportunity</h2>
+            <div class="legal-links">
+                <a href="#eeoc" class="legal-link">EEOC Statement</a>
+                <a href="#accommodation" class="legal-link">Reasonable Accommodation</a>
+                <a href="#pay-transparency" class="legal-link">Pay Transparency</a>
+            </div>
+            <p class="accommodation-text">
+                HA Solutions is committed to providing reasonable accommodations for qualified individuals with disabilities in our job application process. If you need assistance or an accommodation due to a disability, you may contact us at <a href="mailto:info@hasolutions.com">info@hasolutions.com</a>.
+            </p>
+            <h3 class="eoe-statement">WE ARE AN EQUAL OPPORTUNITY EMPLOYER</h3>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="application/json" id="jobs-data">
+    {{ jobs|safe }}
+    </script>
+    <script src="{% static 'js/careers.js' %}?v={{ timestamp }}"></script>
+{% endblock %}
+

@@ -1,0 +1,98 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}IT Training for Veterans & Active Military - HA Solutions{% endblock %}
+{% block meta_description %}HA Solutions - IT Training for Veterans & Active Military{% endblock %}
+
+{% block content %}
+    <section id="main-content" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">IT Training for Veterans & Active Military</h1>
+            <p class="hero-subtitle">
+                Transition your military service into a successful technology career with specialized training and support.
+            </p>
+        </div>
+    </section>
+
+    
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title">Thank You for Your Service</h2>
+            <p class="section-description">
+                Your military background brings discipline, leadership, and problem-solving skills that excel in technology careers. HA Solutions is proud to support veterans and active military personnel transitioning into IT.
+            </p>
+        </div>
+    </section>
+
+    <section class="transformation-section">
+        <div class="container">
+            <h2 class="section-title">Program Details</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Military Transition Support</h3>
+                    <p>Specialized counseling for military-to-civilian career transitions and skill translation.</p>
+                </div>
+                <div class="card">
+                    <h3>Security Clearance Roles</h3>
+                    <p>Opportunities requiring security clearances where military experience is highly valued.</p>
+                </div>
+                <div class="card">
+                    <h3>Leadership Development</h3>
+                    <p>Leverage your leadership experience in tech lead, architect, and management roles.</p>
+                </div>
+                <div class="card">
+                    <h3>Structured Learning</h3>
+                    <p>Training programs that mirror military educational approaches for maximum effectiveness.</p>
+                </div>
+                <div class="card">
+                    <h3>Veteran Mentorship</h3>
+                    <p>Connect with other veterans in technology for guidance and support throughout your journey.</p>
+                </div>
+                <div class="card">
+                    <h3>Benefits Navigation</h3>
+                    <p>Assistance with GI Bill, VET TEC, and other military education benefits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insights-section">
+        <div class="container">
+            <h2 class="section-title">What to Expect</h2>
+            <p class="section-description">
+                A clear path to your technology career.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Disciplined Approach</h3>
+                    <p>Military discipline translates perfectly to systematic coding, testing, and deployment.</p>
+                </div>
+                <div class="card">
+                    <h3>Team Collaboration</h3>
+                    <p>Your experience working in diverse teams strengthens agile development practices.</p>
+                </div>
+                <div class="card">
+                    <h3>Problem-Solving</h3>
+                    <p>Mission-critical thinking enhances troubleshooting, architecture, and innovation.</p>
+                </div>
+                <div class="card">
+                    <h3>Work Ethic</h3>
+                    <p>Dedication and reliability that employers trust and value from day one.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Ready to Get Started?</h2>
+            <p class="section-description">
+                Connect with HA Solutions to discuss your specific needs.
+            </p>
+            <div class="cta-buttons">
+                <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

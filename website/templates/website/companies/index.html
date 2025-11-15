@@ -1,0 +1,303 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Enterprise Solutions - HA Solutions{% endblock %}
+{% block meta_description %}HA Solutions - Enterprise Technology Solutions{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section id="main-content" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Enterprise Technology Solutions</h1>
+            <p class="hero-subtitle">
+                Building custom-trained teams that drive innovation and accelerate digital transformation for the world's most trusted brands.
+            </p>
+        </div>
+    </section>
+
+    <!-- Our Capabilities -->
+    <section id="capabilities" class="why-section">
+        <div class="container">
+            <h2 class="section-title">Our Capabilities</h2>
+            <p class="section-description">
+                Talent built for you, at no risk to you. Our hire-train-deploy model delivers the exact skills your organization needs.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Hire-Train-Deploy Model</h3>
+                    <p>We recruit, rigorously train, and deploy professionals ready to deliver from day one. Zero upfront costs, complete risk mitigation.</p>
+                </div>
+                <div class="card">
+                    <h3>Custom Training Programs</h3>
+                    <p>Every professional undergoes intensive training specific to your stack, processes, and business requirements before joining your team.</p>
+                </div>
+                <div class="card">
+                    <h3>Scalable Solutions</h3>
+                    <p>Whether you need one specialist or one hundred, we scale our training and deployment to match your exact requirements.</p>
+                </div>
+                <div class="card">
+                    <h3>Technology Agnostic</h3>
+                    <p>From legacy mainframes to cutting-edge cloud platforms, we train professionals in the technologies that power your business.</p>
+                </div>
+                <div class="card">
+                    <h3>Continuous Upskilling</h3>
+                    <p>As your technology evolves, we provide ongoing training to keep your teams current with the latest tools and best practices.</p>
+                </div>
+                <div class="card">
+                    <h3>Proven Track Record</h3>
+                    <p>95%+ placement rate with clients including Fortune 500 companies, federal agencies, and high-growth startups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Expertise -->
+    <section id="expertise" class="transformation-section">
+        <div class="container">
+            <h2 class="section-title">Industry Expertise</h2>
+            <p class="section-description">
+                We understand the unique technology challenges across industries. Our talent is trained specifically for your sector's requirements.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Data Centers</h3>
+                    <p>Infrastructure and automation specialists for modern data center operations</p>
+                    <a href="{% url 'industry_data_centers' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Financial Services</h3>
+                    <p>Compliance-focused developers and engineers for banking and insurance</p>
+                    <a href="{% url 'industry_financial' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Healthcare</h3>
+                    <p>HIPAA-compliant technology professionals for healthcare innovation</p>
+                    <a href="{% url 'industry_healthcare' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Semiconductor</h3>
+                    <p>Software engineers and automation experts for chip manufacturing</p>
+                    <a href="{% url 'industry_semiconductor' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Telecommunications</h3>
+                    <p>Network engineers and cloud architects for telecom infrastructure</p>
+                    <a href="{% url 'industry_telecommunications' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Alliances -->
+    <section id="technology" class="insights-section">
+        <div class="container">
+            <h2 class="section-title">Technology Alliances</h2>
+            <p class="section-description">
+                Our partnerships with leading technology platforms ensure your team is skilled in the tools that power modern enterprise.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>SAP</h3>
+                    <p>Enterprise resource planning and business software expertise</p>
+                    <a href="{% url 'technology_sap' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Workday</h3>
+                    <p>HR and financial management cloud solutions</p>
+                    <a href="{% url 'technology_workday' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>AWS</h3>
+                    <p>Amazon Web Services cloud architecture and DevOps</p>
+                    <a href="{% url 'technology_aws' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Databricks</h3>
+                    <p>Data analytics and AI platform specialists</p>
+                    <a href="{% url 'technology_databricks' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Mulesoft</h3>
+                    <p>Integration platform for connecting systems and data</p>
+                    <a href="{% url 'technology_mulesoft' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Pega</h3>
+                    <p>Business process management and CRM automation</p>
+                    <a href="{% url 'technology_pega' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Salesforce</h3>
+                    <p>Customer relationship management and cloud platforms</p>
+                    <a href="{% url 'technology_salesforce' %}" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>ServiceNow</h3>
+                    <p>IT service management and workflow automation</p>
+                    <a href="{% url 'technology_servicenow' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why HA Solutions -->
+    <section id="why" class="why-section">
+        <div class="container">
+            <h2 class="section-title">Why HA Solutions</h2>
+            <p class="section-description">
+                What sets us apart in the technology talent landscape.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Risk-Free Hiring</h3>
+                    <p>We assume all risk. Train talent to your exact specifications before deployment, ensuring every hire is mission-ready.</p>
+                </div>
+                <div class="card">
+                    <h3>Custom Skills</h3>
+                    <p>Receive professionals with the precise technology expertise you need - from legacy Cobol to cutting-edge AI frameworks.</p>
+                </div>
+                <div class="card">
+                    <h3>Scalable Solutions</h3>
+                    <p>Build your team from one to hundreds with consistent quality, standardized processes, and reliable delivery.</p>
+                </div>
+                <div class="card">
+                    <h3>No Committed Contracts</h3>
+                    <p>Month-to-month flexibility means you scale up or down based on business needs without long-term obligations.</p>
+                </div>
+                <div class="card">
+                    <h3>Cultural Fit</h3>
+                    <p>We assess for technical AND cultural alignment, ensuring seamless integration with your existing teams.</p>
+                </div>
+                <div class="card">
+                    <h3>Speed to Market</h3>
+                    <p>Deploy trained, productive professionals in weeks, not months. Your projects start delivering value immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Federal Solutions Section -->
+    <section id="federal" class="why-section">
+        <div class="container">
+            <h2 class="section-title">Federal Technology Solutions</h2>
+            <p class="section-description">
+                Supporting America's Most Critical Missions
+            </p>
+            <p class="section-description">
+                HA Solutions partners with federal agencies to deliver skilled technology professionals who understand government operations, security requirements, and the unique challenges of public sector IT. With decades of combined experience supporting federal missions, our team is trained to operate in the most demanding and secure environments.
+            </p>
+        </div>
+    </section>
+
+    <section class="transformation-section">
+        <div class="container">
+            <h2 class="section-title">Federal-Focused Expertise</h2>
+            <p class="section-description">
+                Every project in the federal space requires specialized knowledge, rigorous security protocols, and absolute dedication to mission success.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Security-Cleared Talent</h3>
+                    <p>Access professionals with active security clearances and experience in classified environments. Our team includes individuals with TS/SCI clearances who understand classified operations.</p>
+                </div>
+                <div class="card">
+                    <h3>Compliance Expertise</h3>
+                    <p>Deep knowledge of federal regulations including FISMA, FedRAMP, NIST, RMF, and DoD 8500-series controls. We ensure every solution meets stringent federal requirements.</p>
+                </div>
+                <div class="card">
+                    <h3>Mission-Critical Systems</h3>
+                    <p>Experience building and maintaining systems that power America's defense, security, intelligence, and public services. We deliver solutions that matter.</p>
+                </div>
+                <div class="card">
+                    <h3>Government Best Practices</h3>
+                    <p>Proven methodologies for federal IT acquisition, agile development in government environments, and collaborative working relationships with federal teams.</p>
+                </div>
+                <div class="card">
+                    <h3>Cost-Effective Solutions</h3>
+                    <p>Hire-train-deploy model that delivers qualified talent without upfront costs or long-term commitments, maximizing your IT budget's impact.</p>
+                </div>
+                <div class="card">
+                    <h3>Rapid Deployment</h3>
+                    <p>Get mission-ready talent in weeks, not months. Our streamlined process ensures your teams are operational when you need them most.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insights-section">
+        <div class="container">
+            <h2 class="section-title">Our Federal Services Portfolio</h2>
+            <p class="section-description">
+                Comprehensive technology solutions designed specifically for federal government needs and challenges.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Software Development</h3>
+                    <p>Custom application development for federal agencies using modern architectures, secure coding practices, and government-approved frameworks. Specializing in Java, .NET, Python, and cloud-native technologies.</p>
+                </div>
+                <div class="card">
+                    <h3>Cloud Migration</h3>
+                    <p>Secure cloud transformation for government workloads with expertise in AWS GovCloud, Azure Government, and other FedRAMP-authorized platforms. Zero data loss guaranteed.</p>
+                </div>
+                <div class="card">
+                    <h3>Cybersecurity</h3>
+                    <p>Protecting sensitive government data and infrastructure with advanced threat detection, vulnerability assessments, and continuous monitoring solutions compliant with federal standards.</p>
+                </div>
+                <div class="card">
+                    <h3>DevOps & Automation</h3>
+                    <p>Streamlining government IT operations through CI/CD pipelines, infrastructure as code, and automated testing frameworks that accelerate delivery while maintaining security.</p>
+                </div>
+                <div class="card">
+                    <h3>Data Analytics & AI</h3>
+                    <p>Harnessing big data and artificial intelligence for federal missions. Specialized in secure AI deployment, data lakes, and real-time analytics for intelligence and decision support.</p>
+                </div>
+                <div class="card">
+                    <h3>Legacy Modernization</h3>
+                    <p>Transforming aging government systems into modern, secure, and maintainable platforms while ensuring continuity of critical operations and minimizing risk.</p>
+                </div>
+                <div class="card">
+                    <h3>ServiceNow Integration</h3>
+                    <p>Implementing and optimizing ServiceNow platforms for federal IT service management, operations management, and governance, risk, and compliance workflows.</p>
+                </div>
+                <div class="card">
+                    <h3>Salesforce Government Cloud</h3>
+                    <p>Deploying secure, compliant Salesforce solutions for federal agencies, including case management, customer engagement, and mission-critical applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-section">
+        <div class="container">
+            <h2 class="section-title">Why Federal Agencies Choose HA Solutions</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>No Risk Model</h3>
+                    <p>Our hire-train-deploy approach means you receive skilled, mission-ready professionals with zero upfront investment or long-term commitments.</p>
+                </div>
+                <div class="card">
+                    <h3>Mission Alignment</h3>
+                    <p>Every professional is trained specifically for your agency's requirements, technologies, and operational needs before deployment.</p>
+                </div>
+                <div class="card">
+                    <h3>Scalable Solutions</h3>
+                    <p>From single specialist deployments to enterprise-wide teams of 100+, we scale to meet your mission requirements efficiently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Build Your Custom-Trained Team</h2>
+            <p class="section-description">
+                Connect with HA Solutions to discuss your technology talent needs.
+            </p>
+            <div class="cta-buttons">
+                <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

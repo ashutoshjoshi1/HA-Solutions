@@ -9,7 +9,33 @@
       "city": "San Francisco",
       "type": "Hybrid",
       "date": "2025-01-15",
-      "description": "We are seeking a Senior Software Engineer to join our dynamic team. You will be responsible for designing, developing, and maintaining scalable software solutions. The ideal candidate has 5+ years of experience in full-stack development, strong problem-solving skills, and experience with cloud technologies."
+      "description": "We are seeking a Senior Software Engineer to join our dynamic team. You will be responsible for designing, developing, and maintaining scalable software solutions.",
+      "detailedDescription": "We are seeking a Senior Software Engineer to join our dynamic team. You will be responsible for designing, developing, and maintaining scalable software solutions. The ideal candidate has 5+ years of experience in full-stack development, strong problem-solving skills, and experience with cloud technologies. You'll work closely with cross-functional teams to deliver high-quality software products that meet business requirements.",
+      "responsibilities": [
+        "Design, develop, and maintain scalable software solutions using modern technologies",
+        "Collaborate with cross-functional teams including product managers, designers, and other engineers",
+        "Write clean, maintainable, and well-documented code",
+        "Participate in code reviews and provide constructive feedback",
+        "Troubleshoot and debug applications to optimize performance",
+        "Stay current with industry trends and best practices in software development"
+      ],
+      "requiredQualifications": [
+        "Bachelor's degree in Computer Science, Engineering, or related field",
+        "5+ years of experience in full-stack software development",
+        "Proficiency in programming languages such as Java, Python, JavaScript, or similar",
+        "Experience with cloud platforms (AWS, Azure, or GCP)",
+        "Strong understanding of software design patterns and principles",
+        "Experience with version control systems (Git)",
+        "Excellent problem-solving and analytical skills",
+        "Strong communication and collaboration abilities"
+      ],
+      "preferredQualifications": [
+        "Master's degree in Computer Science or related field",
+        "Experience with microservices architecture",
+        "Knowledge of containerization technologies (Docker, Kubernetes)",
+        "Experience with CI/CD pipelines",
+        "Certifications in cloud platforms"
+      ]
     },
     {
       "id": 2,
@@ -20,7 +46,35 @@
       "city": "Remote",
       "type": "Remote",
       "date": "2025-01-14",
-      "description": "Join our DevOps team to help build and maintain our infrastructure. You'll work with cutting-edge technologies including Kubernetes, Docker, AWS, and CI/CD pipelines. We're looking for someone with strong automation skills and experience in cloud infrastructure management."
+      "description": "Join our DevOps team to help build and maintain our infrastructure. You'll work with cutting-edge technologies including Kubernetes, Docker, AWS, and CI/CD pipelines.",
+      "detailedDescription": "Join our DevOps team to help build and maintain our infrastructure. You'll work with cutting-edge technologies including Kubernetes, Docker, AWS, and CI/CD pipelines. We're looking for someone with strong automation skills and experience in cloud infrastructure management. You'll be responsible for ensuring our systems are reliable, scalable, and secure.",
+      "responsibilities": [
+        "Design, implement, and maintain CI/CD pipelines for automated deployments",
+        "Manage and monitor cloud infrastructure on AWS, Azure, or GCP",
+        "Implement infrastructure as code using tools like Terraform or CloudFormation",
+        "Configure and maintain container orchestration platforms (Kubernetes, Docker)",
+        "Monitor system performance and troubleshoot issues",
+        "Implement security best practices and compliance requirements",
+        "Automate repetitive tasks and improve operational efficiency",
+        "Collaborate with development teams to optimize application deployment"
+      ],
+      "requiredQualifications": [
+        "Bachelor's degree in Computer Science, Information Technology, or related field",
+        "3+ years of experience in DevOps, SRE, or infrastructure engineering",
+        "Strong experience with cloud platforms (AWS, Azure, or GCP)",
+        "Proficiency in scripting languages (Python, Bash, or similar)",
+        "Experience with containerization technologies (Docker, Kubernetes)",
+        "Knowledge of CI/CD tools (Jenkins, GitLab CI, GitHub Actions, etc.)",
+        "Experience with infrastructure as code (Terraform, Ansible, or similar)",
+        "Understanding of networking, security, and system administration"
+      ],
+      "preferredQualifications": [
+        "Cloud certifications (AWS Certified Solutions Architect, Azure Administrator, etc.)",
+        "Experience with monitoring and logging tools (Prometheus, Grafana, ELK stack)",
+        "Knowledge of service mesh technologies",
+        "Experience with GitOps practices",
+        "Strong understanding of security best practices"
+      ]
     },
     {
       "id": 3,
@@ -31,7 +85,35 @@
       "city": "New York",
       "type": "On-site",
       "date": "2025-01-13",
-      "description": "We're looking for a Data Scientist to help drive data-driven decision making. You'll work with large datasets, build predictive models, and collaborate with cross-functional teams. Experience with Python, machine learning frameworks, and statistical analysis is required."
+      "description": "We're looking for a Data Scientist to help drive data-driven decision making. You'll work with large datasets, build predictive models, and collaborate with cross-functional teams.",
+      "detailedDescription": "We're looking for a Data Scientist to help drive data-driven decision making. You'll work with large datasets, build predictive models, and collaborate with cross-functional teams. Experience with Python, machine learning frameworks, and statistical analysis is required. You'll be responsible for extracting insights from complex data and translating them into actionable business recommendations.",
+      "responsibilities": [
+        "Analyze large datasets to identify trends, patterns, and insights",
+        "Develop and implement machine learning models for prediction and classification",
+        "Create data visualizations and dashboards to communicate findings",
+        "Collaborate with business stakeholders to understand requirements and deliver solutions",
+        "Clean, preprocess, and validate data for analysis",
+        "Design and conduct experiments to test hypotheses",
+        "Present findings and recommendations to technical and non-technical audiences",
+        "Stay current with latest developments in data science and machine learning"
+      ],
+      "requiredQualifications": [
+        "Master's degree in Data Science, Statistics, Mathematics, Computer Science, or related field",
+        "3+ years of experience in data science or analytics",
+        "Proficiency in Python and/or R for data analysis",
+        "Experience with machine learning frameworks (scikit-learn, TensorFlow, PyTorch, etc.)",
+        "Strong statistical analysis and modeling skills",
+        "Experience with SQL and database systems",
+        "Knowledge of data visualization tools (Tableau, Power BI, or similar)",
+        "Excellent problem-solving and analytical thinking skills"
+      ],
+      "preferredQualifications": [
+        "PhD in a quantitative field",
+        "Experience with big data technologies (Spark, Hadoop)",
+        "Knowledge of deep learning and neural networks",
+        "Experience with cloud-based ML platforms (AWS SageMaker, Azure ML)",
+        "Published research papers or contributions to open-source projects"
+      ]
     },
     {
       "id": 4,
@@ -42,7 +124,35 @@
       "city": "Austin",
       "type": "Hybrid",
       "date": "2025-01-12",
-      "description": "Seeking a talented Frontend Developer to create beautiful and intuitive user interfaces. You'll work with modern frameworks like React, Vue, or Angular, and collaborate closely with designers and backend developers. Strong CSS and JavaScript skills are essential."
+      "description": "Seeking a talented Frontend Developer to create beautiful and intuitive user interfaces. You'll work with modern frameworks like React, Vue, or Angular.",
+      "detailedDescription": "Seeking a talented Frontend Developer to create beautiful and intuitive user interfaces. You'll work with modern frameworks like React, Vue, or Angular, and collaborate closely with designers and backend developers. Strong CSS and JavaScript skills are essential. You'll be responsible for building responsive, accessible, and performant web applications.",
+      "responsibilities": [
+        "Develop responsive and accessible user interfaces using modern web technologies",
+        "Collaborate with UI/UX designers to implement design specifications",
+        "Write clean, maintainable, and well-documented code",
+        "Optimize applications for maximum speed and scalability",
+        "Ensure cross-browser compatibility and responsive design",
+        "Participate in code reviews and maintain coding standards",
+        "Work with backend developers to integrate APIs and services",
+        "Stay updated with latest frontend technologies and best practices"
+      ],
+      "requiredQualifications": [
+        "Bachelor's degree in Computer Science, Web Development, or related field",
+        "3+ years of experience in frontend development",
+        "Proficiency in HTML, CSS, and JavaScript",
+        "Experience with modern JavaScript frameworks (React, Vue, or Angular)",
+        "Strong understanding of responsive design principles",
+        "Experience with version control systems (Git)",
+        "Knowledge of CSS preprocessors (SASS, LESS) and build tools",
+        "Understanding of web performance optimization techniques"
+      ],
+      "preferredQualifications": [
+        "Experience with TypeScript",
+        "Knowledge of state management libraries (Redux, Vuex, etc.)",
+        "Experience with testing frameworks (Jest, Cypress, etc.)",
+        "Understanding of accessibility standards (WCAG)",
+        "Experience with server-side rendering (Next.js, Nuxt.js)"
+      ]
     },
     {
       "id": 5,
@@ -53,7 +163,35 @@
       "city": "Seattle",
       "type": "Remote",
       "date": "2025-01-11",
-      "description": "We need a Cloud Solutions Architect to design and implement scalable cloud infrastructure. You'll work with AWS, Azure, or GCP to create robust solutions for our clients. Strong architectural skills and cloud certifications are preferred."
+      "description": "We need a Cloud Solutions Architect to design and implement scalable cloud infrastructure. You'll work with AWS, Azure, or GCP to create robust solutions for our clients.",
+      "detailedDescription": "We need a Cloud Solutions Architect to design and implement scalable cloud infrastructure. You'll work with AWS, Azure, or GCP to create robust solutions for our clients. Strong architectural skills and cloud certifications are preferred. You'll be responsible for designing cloud-native solutions that are secure, scalable, and cost-effective.",
+      "responsibilities": [
+        "Design and architect cloud-based solutions for enterprise clients",
+        "Develop cloud migration strategies and implementation plans",
+        "Create technical documentation and architecture diagrams",
+        "Lead technical discussions with clients and stakeholders",
+        "Evaluate and recommend cloud services and technologies",
+        "Ensure solutions meet security, compliance, and performance requirements",
+        "Mentor and guide development teams on cloud best practices",
+        "Stay current with cloud platform updates and new services"
+      ],
+      "requiredQualifications": [
+        "Bachelor's degree in Computer Science, Information Technology, or related field",
+        "5+ years of experience in cloud architecture or solutions design",
+        "Deep expertise in at least one major cloud platform (AWS, Azure, or GCP)",
+        "Experience designing and implementing scalable, highly available systems",
+        "Strong understanding of cloud security and compliance requirements",
+        "Experience with infrastructure as code (Terraform, CloudFormation, ARM templates)",
+        "Knowledge of networking, security, and system architecture",
+        "Excellent communication and presentation skills"
+      ],
+      "preferredQualifications": [
+        "Cloud certifications (AWS Solutions Architect Professional, Azure Solutions Architect Expert, etc.)",
+        "Experience with multi-cloud architectures",
+        "Knowledge of containerization and orchestration (Kubernetes, Docker)",
+        "Experience with serverless architectures",
+        "Previous consulting or client-facing experience"
+      ]
     }
   ]
 }

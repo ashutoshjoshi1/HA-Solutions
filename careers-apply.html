@@ -126,6 +126,38 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="streetAddress">Street Address <span class="required">*</span></label>
+                        <input type="text" id="streetAddress" name="streetAddress" placeholder="Street address" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City <span class="required">*</span></label>
+                            <input type="text" id="city" name="city" placeholder="City" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state">State <span class="required">*</span></label>
+                            <input type="text" id="state" name="state" placeholder="State" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="zipCode">ZIP Code <span class="required">*</span></label>
+                            <input type="text" id="zipCode" name="zipCode" placeholder="ZIP Code" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="visaStatus">Visa Status <span class="required">*</span></label>
+                        <select id="visaStatus" name="visaStatus" required>
+                            <option value="">Please select...</option>
+                            <option value="US Citizen">US Citizen</option>
+                            <option value="H1B">H1B</option>
+                            <option value="Green Card">Green Card</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="resume">Upload Resume <span class="required">*</span></label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>

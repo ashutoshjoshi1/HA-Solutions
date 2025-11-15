@@ -1,0 +1,98 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Free Technology Training Programs - HA Solutions{% endblock %}
+{% block meta_description %}HA Solutions - Free Technology Training Programs{% endblock %}
+
+{% block content %}
+    <section id="main-content" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Free Technology Training Programs</h1>
+            <p class="hero-subtitle">
+                Access industry-leading technology training at no cost. Learn the skills employers need most.
+            </p>
+        </div>
+    </section>
+
+    
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title">Comprehensive Technology Training</h2>
+            <p class="section-description">
+                Our free training programs are designed by industry experts and taught by professionals with real-world experience. Learn the skills that Fortune 500 companies and government agencies need most.
+            </p>
+        </div>
+    </section>
+
+    <section class="transformation-section">
+        <div class="container">
+            <h2 class="section-title">Program Details</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Enterprise Platforms</h3>
+                    <p>Salesforce, ServiceNow, SAP, Workday, Pega, and MuleSoft certifications and hands-on projects.</p>
+                </div>
+                <div class="card">
+                    <h3>Cloud & DevOps</h3>
+                    <p>AWS, Azure, Terraform, Kubernetes, Docker, and CI/CD pipelines for modern cloud deployments.</p>
+                </div>
+                <div class="card">
+                    <h3>Full-Stack Development</h3>
+                    <p>Java, Python, React, Node.js, microservices, and modern software engineering practices.</p>
+                </div>
+                <div class="card">
+                    <h3>Data & Analytics</h3>
+                    <p>SQL, Spark, Databricks, Power BI, Tableau, and data engineering fundamentals.</p>
+                </div>
+                <div class="card">
+                    <h3>Security & Compliance</h3>
+                    <p>Cybersecurity fundamentals, vulnerability assessment, and regulatory compliance frameworks.</p>
+                </div>
+                <div class="card">
+                    <h3>Agile & Methodology</h3>
+                    <p>Scrum, Kanban, DevOps culture, and collaborative software development practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insights-section">
+        <div class="container">
+            <h2 class="section-title">What to Expect</h2>
+            <p class="section-description">
+                A clear path to your technology career.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Real-World Projects</h3>
+                    <p>Build portfolio projects using production-grade technologies and best practices.</p>
+                </div>
+                <div class="card">
+                    <h3>Industry Certifications</h3>
+                    <p>Earn vendor certifications that employers value and trust.</p>
+                </div>
+                <div class="card">
+                    <h3>Mentorship & Support</h3>
+                    <p>One-on-one mentorship, career coaching, and peer study groups.</p>
+                </div>
+                <div class="card">
+                    <h3>Job Readiness</h3>
+                    <p>Interview preparation, resume building, and professional networking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">Ready to Get Started?</h2>
+            <p class="section-description">
+                Connect with HA Solutions to discuss your specific needs.
+            </p>
+            <div class="cta-buttons">
+                <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

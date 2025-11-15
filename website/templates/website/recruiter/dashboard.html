@@ -1,0 +1,69 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Recruiter Dashboard - HA Solutions{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <h1 style="color: var(--text-dark);">Job Management Dashboard</h1>
+        <div style="display: flex; gap: 10px;">
+            <a href="{% url 'create_job' %}" class="btn btn-primary">Create New Job</a>
+            <a href="{% url 'recruiter_logout' %}" class="btn" style="background: #dc3545; color: white;">Logout</a>
+        </div>
+    </div>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" style="margin-bottom: 20px;">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <div style="background: var(--card-bg); border-radius: 10px; padding: 30px; box-shadow: var(--shadow-sm);">
+        <h2 style="margin-bottom: 20px; color: var(--text-dark);">All Jobs ({{ jobs|length }})</h2>
+        
+        {% if jobs %}
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="border-bottom: 2px solid var(--border-color);">
+                    <th style="padding: 12px; text-align: left; color: var(--text-dark);">Job Number</th>
+                    <th style="padding: 12px; text-align: left; color: var(--text-dark);">Title</th>
+                    <th style="padding: 12px; text-align: left; color: var(--text-dark);">Category</th>
+                    <th style="padding: 12px; text-align: left; color: var(--text-dark);">Location</th>
+                    <th style="padding: 12px; text-align: left; color: var(--text-dark);">Status</th>
+                    <th style="padding: 12px; text-align: left; color: var(--text-dark);">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs %}
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                    <td style="padding: 12px; color: var(--text-light); font-size: 14px;">{{ job.job_number }}</td>
+                    <td style="padding: 12px; color: var(--text-dark); font-weight: 500;">{{ job.title }}</td>
+                    <td style="padding: 12px; color: var(--text-light);">{{ job.category }}</td>
+                    <td style="padding: 12px; color: var(--text-light);">{{ job.location }}</td>
+                    <td style="padding: 12px;">
+                        {% if job.is_active %}
+                            <span style="color: #28a745; font-weight: 500;">Active</span>
+                        {% else %}
+                            <span style="color: #dc3545; font-weight: 500;">Inactive</span>
+                        {% endif %}
+                    </td>
+                    <td style="padding: 12px;">
+                        <div style="display: flex; gap: 8px;">
+                            <a href="{% url 'update_job' job.id %}" class="btn" style="padding: 6px 12px; font-size: 14px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 4px;">Edit</a>
+                            <a href="{% url 'delete_job_confirm' job.id %}" class="btn" style="padding: 6px 12px; font-size: 14px; background: #dc3545; color: white; text-decoration: none; border-radius: 4px;">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="color: var(--text-light); text-align: center; padding: 40px;">No jobs found. <a href="{% url 'create_job' %}">Create your first job posting</a>.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

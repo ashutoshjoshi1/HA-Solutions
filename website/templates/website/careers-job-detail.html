@@ -1,0 +1,85 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% load markdown_filters %}
+
+{% block title %}{{ job.title }} - HA Solutions{% endblock %}
+{% block meta_description %}{{ job.description }}{% endblock %}
+
+{% block content %}
+    <section id="main-content" class="job-detail-section">
+        <div class="container">
+            <div class="job-detail-container">
+                <a href="{% url 'careers' %}" class="back-link">← Back to Careers</a>
+                
+                <div class="job-detail-content">
+                    <div class="job-detail-header">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                            <h1 class="job-detail-title" style="margin: 0;">{{ job.title }}</h1>
+                            {% if job.job_number %}
+                            <span style="font-size: 12px; color: #666; font-weight: normal; margin-top: 5px;">{{ job.job_number }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="job-detail-meta">
+                            <span class="job-detail-category">{{ job.category|default:"Other" }}</span>
+                            {% if job.location %}
+                            <span class="job-detail-location">
+                                <span class="location-icon">📍</span>
+                                {{ job.location }}
+                            </span>
+                            {% endif %}
+                            {% if job.type %}
+                            <span class="job-detail-type">{{ job.type }}</span>
+                            {% endif %}
+                            <span class="job-detail-date">{{ job.date|date:"F d, Y" }}</span>
+                        </div>
+                    </div>
+
+                    <div class="job-detail-body">
+                        <div class="job-detail-description">
+                            <h2>Job Description</h2>
+                            <div class="job-description-content">{{ job.detailedDescription|default:job.description|format_job_description_html }}</div>
+                        </div>
+
+                        {% if job.responsibilities %}
+                        <div class="job-detail-section">
+                            <h2>Responsibilities</h2>
+                            <ul>
+                                {% for responsibility in job.responsibilities %}
+                                    <li>{{ responsibility }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                        {% if job.requiredQualifications %}
+                        <div class="job-detail-section">
+                            <h2>Required Qualifications</h2>
+                            <ul>
+                                {% for qualification in job.requiredQualifications %}
+                                    <li>{{ qualification }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                        {% if job.preferredQualifications %}
+                        <div class="job-detail-section">
+                            <h2>Preferred Qualifications</h2>
+                            <ul>
+                                {% for qualification in job.preferredQualifications %}
+                                    <li>{{ qualification }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="job-detail-actions">
+                        <a href="{% url 'careers_apply' %}?job={{ job.title|urlencode }}&id={{ job.id }}" class="btn btn-primary btn-apply-large">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

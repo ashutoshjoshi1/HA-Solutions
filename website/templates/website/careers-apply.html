@@ -1,0 +1,128 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Apply for Position - HA Solutions{% endblock %}
+{% block meta_description %}HA Solutions - Apply for Career Opportunities{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section id="main-content" class="careers-hero-section">
+        <div class="careers-hero-content">
+            <h1 class="careers-hero-title">Apply for Position</h1>
+        </div>
+    </section>
+
+    <!-- Application Section -->
+    <section class="application-section">
+        <div class="container">
+            <div class="application-form-container">
+                <div class="job-info-box">
+                    <h2>Position: {{ job_title }}</h2>
+                </div>
+
+                <form method="post" enctype="multipart/form-data" class="application-form" id="applicationForm">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.full_name.id_for_label }}">Full Name <span class="required">*</span></label>
+                        {{ form.full_name }}
+                        {% if form.full_name.errors %}
+                            <div class="error">{{ form.full_name.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">Email <span class="required">*</span></label>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                                <div class="error">{{ form.email.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.phone.id_for_label }}">Phone Number <span class="required">*</span></label>
+                            {{ form.phone }}
+                            {% if form.phone.errors %}
+                                <div class="error">{{ form.phone.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.street_address.id_for_label }}">Street Address <span class="required">*</span></label>
+                        {{ form.street_address }}
+                        {% if form.street_address.errors %}
+                            <div class="error">{{ form.street_address.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="{{ form.city.id_for_label }}">City <span class="required">*</span></label>
+                            {{ form.city }}
+                            {% if form.city.errors %}
+                                <div class="error">{{ form.city.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.state.id_for_label }}">State <span class="required">*</span></label>
+                            {{ form.state }}
+                            {% if form.state.errors %}
+                                <div class="error">{{ form.state.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.zip_code.id_for_label }}">ZIP Code <span class="required">*</span></label>
+                            {{ form.zip_code }}
+                            {% if form.zip_code.errors %}
+                                <div class="error">{{ form.zip_code.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.visa_status.id_for_label }}">Visa Status <span class="required">*</span></label>
+                        {{ form.visa_status }}
+                        {% if form.visa_status.errors %}
+                            <div class="error">{{ form.visa_status.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.resume.id_for_label }}">Resume <span class="required">*</span></label>
+                        <div class="file-upload-wrapper">
+                            {{ form.resume }}
+                            <label for="{{ form.resume.id_for_label }}" class="file-upload-label">
+                                <span class="file-upload-text">Choose File</span>
+                                <span class="file-upload-button">Browse</span>
+                            </label>
+                            <span class="file-name-display" id="fileNameDisplay">No file chosen</span>
+                        </div>
+                        <span class="form-help">Accepted formats: PDF, DOC, DOCX (Max 5MB)</span>
+                        {% if form.resume.errors %}
+                            <div class="error">{{ form.resume.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.cover_letter.id_for_label }}">Cover Letter</label>
+                        {{ form.cover_letter }}
+                        {% if form.cover_letter.errors %}
+                            <div class="error">{{ form.cover_letter.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/careers-apply.js' %}"></script>
+{% endblock %}
+
