@@ -18,6 +18,9 @@
             <div class="application-form-container">
                 <div class="job-info-box">
                     <h2>Position: {{ job_title }}</h2>
+                    {% if job and job.job_number %}
+                    <p style="margin-top: 10px; color: #666; font-size: 14px;">Job Number: {{ job.job_number }}</p>
+                    {% endif %}
                 </div>
 
                 <form method="post" enctype="multipart/form-data" class="application-form" id="applicationForm">
@@ -117,6 +120,16 @@
                         <button type="submit" class="btn btn-primary">Submit Application</button>
                     </div>
                 </form>
+                
+                {% if messages %}
+                    <div class="messages-inline">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </section>

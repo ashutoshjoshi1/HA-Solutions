@@ -1,7 +1,71 @@
+// Contact form handling - Client-side validation only (email sent via Django backend)
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
-    const phoneInput = document.getElementById('phone');
+    const phoneInput = document.getElementById('id_phone');
+    const attachmentInput = document.getElementById('id_attachment');
+    const fileDisplay = document.getElementById('fileDisplay');
+    const fileName = document.getElementById('fileName');
+    const removeFileBtn = document.getElementById('removeFile');
+
+    // File upload display and handling
+    if (attachmentInput) {
+        attachmentInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                // Validate file size (10MB max)
+                const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+                if (file.size > maxSize) {
+                    alert('File size exceeds 10MB. Please choose a smaller file.');
+                    e.target.value = '';
+                    fileDisplay.style.display = 'none';
+                    return;
+                }
+
+                // Validate file type
+                const allowedTypes = [
+                    'application/pdf',
+                    'application/msword',
+                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                    'text/plain',
+                    'image/jpeg',
+                    'image/jpg',
+                    'image/png',
+                    'image/gif'
+                ];
+                if (!allowedTypes.includes(file.type)) {
+                    alert('Invalid file type. Please upload a PDF, DOC, DOCX, TXT, or image file.');
+                    e.target.value = '';
+                    fileDisplay.style.display = 'none';
+                    return;
+                }
+
+                // Display file name
+                fileName.textContent = file.name + ' (' + formatFileSize(file.size) + ')';
+                fileDisplay.style.display = 'block';
+            } else {
+                fileDisplay.style.display = 'none';
+            }
+        });
+    }
+
+    // Remove file button
+    if (removeFileBtn) {
+        removeFileBtn.addEventListener('click', function() {
+            if (attachmentInput) {
+                attachmentInput.value = '';
+                fileDisplay.style.display = 'none';
+            }
+        });
+    }
+
+    // Format file size for display
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    }
 
     // Phone number formatting and validation
     if (phoneInput) {
@@ -30,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     // International format: +44 1234567890
                     formatted = '+' + digits.substring(0, 15); // Max 15 digits
                     // Add space after country code (typically 1-3 digits)
-                    // For simplicity, add space after 2-3 digits
                     if (formatted.length > 4) {
                         let countryCodeLength = formatted.length > 5 ? 3 : 2;
                         formatted = formatted.substring(0, countryCodeLength + 1) + ' ' + formatted.substring(countryCodeLength + 1);
@@ -53,10 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 (e.keyCode >= 35 && e.keyCode <= 39)) {
                 return;
             }
-            // Allow + key at the start
-            if (e.keyCode === 187 && (e.target.value.length === 0 || e.target.selectionStart === 0)) {
-                return;
-            }
             // Ensure that it is a number
             if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
                 e.preventDefault();
@@ -64,82 +123,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Client-side form validation
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
             // Get form values
-            const firstName = document.getElementById('firstName').value.trim();
-            const lastName = document.getElementById('lastName').value.trim();
-            const company = document.getElementById('company').value.trim();
-            const inquiryType = document.getElementById('inquiryType').value;
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
+            const firstName = document.getElementById('id_first_name') ? document.getElementById('id_first_name').value.trim() : '';
+            const lastName = document.getElementById('id_last_name') ? document.getElementById('id_last_name').value.trim() : '';
+            const inquiryType = document.getElementById('id_inquiry_type') ? document.getElementById('id_inquiry_type').value : '';
+            const phone = document.getElementById('id_phone') ? document.getElementById('id_phone').value.trim() : '';
+            const email = document.getElementById('id_email') ? document.getElementById('id_email').value.trim() : '';
+            const message = document.getElementById('id_message') ? document.getElementById('id_message').value.trim() : '';
 
             // Validate form
             if (!firstName || !lastName || !inquiryType || !phone || !email || !message) {
-                showMessage('Please fill in all required fields.', 'error');
-                return;
+                e.preventDefault();
+                alert('Please fill in all required fields.');
+                return false;
             }
 
             // Validate email format
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                showMessage('Please enter a valid email address.', 'error');
-                return;
+                e.preventDefault();
+                alert('Please enter a valid email address.');
+                return false;
             }
 
             // Validate phone number format (must include country code)
-            // Phone should start with + and have at least 10 digits after country code
             const phoneDigits = phone.replace(/\D/g, '');
-            const phoneRegex = /^\+?[1-9]\d{1,14}$/; // E.164 format
-            
             if (!phone.startsWith('+')) {
-                showMessage('Please include country code in phone number (e.g., +1 for USA).', 'error');
-                return;
+                e.preventDefault();
+                alert('Please include country code in phone number (e.g., +1 for USA).');
+                return false;
             }
-            
             if (phoneDigits.length < 10 || phoneDigits.length > 15) {
-                showMessage('Please enter a valid phone number with country code (10-15 digits).', 'error');
-                return;
+                e.preventDefault();
+                alert('Please enter a valid phone number with country code (10-15 digits).');
+                return false;
             }
 
-            // Prepare form data
-            const formData = {
-                firstName: firstName,
-                lastName: lastName,
-                company: company,
-                inquiryType: inquiryType,
-                phone: phone,
-                email: email,
-                message: message
-            };
-
-            // Here you would typically send the data to a server
-            // For now, we'll just show a success message
-            console.log('Form submitted:', formData);
-
-            // Show success message
-            showMessage('Thank you for contacting us! We will get back to you soon.', 'success');
-
-            // Reset form
-            contactForm.reset();
-
-            // Hide message after 5 seconds
-            setTimeout(function() {
-                formMessage.classList.add('hidden');
-            }, 5000);
+            // If all validations pass, allow form submission (Django will handle email sending)
+            return true;
         });
     }
-
-    function showMessage(message, type) {
-        formMessage.textContent = message;
-        formMessage.className = 'form-message ' + type;
-        formMessage.classList.remove('hidden');
-        
-        // Scroll to message
-        formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
 });
-

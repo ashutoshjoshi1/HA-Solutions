@@ -1,46 +1,82 @@
 # HA Solutions Website
 
-## Site Structure
+A Django-based website for HA Solutions featuring job postings, contact forms, and a recruiter portal.
+
+## Project Structure
 
 ```
 HA-Solutions/
-├── index.html (Homepage)
-├── federal.html
-├── contact.html
-├── css/
-│   └── styles.css (Enhanced global styles - 800+ lines)
-├── js/
-│   └── script.js (Modern JavaScript - 400+ lines)
-├── companies/
-│   └── index.html
-├── industry/
-│   ├── industry-data-centers.html
-│   ├── industry-financial.html
-│   ├── industry-healthcare.html
-│   ├── industry-semiconductor.html
-│   └── industry-telecommunications.html
-├── technology/
-│   ├── technology-sap.html
-│   ├── technology-workday.html
-│   ├── technology-aws.html
-│   ├── technology-databricks.html
-│   ├── technology-mulesoft.html
-│   ├── technology-pega.html
-│   ├── technology-salesforce.html
-│   └── technology-servicenow.html
-├── candidates/
-│   ├── candidates.html
-│   ├── candidates-veterans.html
-│   ├── candidates-training.html
-│   ├── candidates-career.html
-│   └── candidates-apply.html
-├── about/
-│   ├── about.html
-│   ├── about-team.html
-│   └── about-partnerships.html
-└── README.md
+├── hasolutions/          # Django project settings
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── website/              # Main Django app
+│   ├── models.py         # Job model
+│   ├── views.py          # Public views
+│   ├── admin_views.py    # Recruiter portal views
+│   ├── forms.py          # Contact & job application forms
+│   ├── templates/        # HTML templates
+│   └── static/           # Static files (CSS, JS, images)
+├── scripts/              # Utility scripts
+├── manage.py
+└── requirements.txt
 ```
 
-## How to Use
+## Setup
 
-Simply open `index.html` in your web browser to view the website. No additional setup or build process required.
+1. **Create and activate virtual environment:**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Run migrations:**
+   ```bash
+   python manage.py migrate
+   ```
+
+4. **Create superuser (for recruiter portal):**
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+5. **Run development server:**
+   ```bash
+   python manage.py runserver
+   ```
+
+6. **Access the site:**
+   - Website: http://127.0.0.1:8000/
+   - Recruiter Portal: http://127.0.0.1:8000/recruiter/login/
+
+## Features
+
+- **Public Pages**: Home, About, Careers, Contact, Companies, Candidates, Technology, Industry
+- **Job Postings**: Dynamic job listings with detailed descriptions
+- **Job Applications**: Application form with resume upload
+- **Contact Form**: Contact form with file attachment support
+- **Recruiter Portal**: CRUD operations for job postings (login required)
+- **Email Integration**: Gmail SMTP for contact and job application emails
+
+## Email Configuration
+
+Email settings are configured in `hasolutions/settings.py`. The system uses Gmail SMTP to send:
+- Contact form submissions to `hamza@hasolutions.us`
+- Job applications to `hamza@hasolutions.us`
+
+## Recruiter Portal
+
+Access the recruiter portal at `/recruiter/login/` to:
+- Create new job postings
+- Update existing jobs
+- Delete jobs
+- View all active jobs
+
+## Static Files
+
+Static files (CSS, JavaScript, images) are located in `website/static/` and are automatically served by Django in development mode.

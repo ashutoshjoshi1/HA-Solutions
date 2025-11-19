@@ -21,7 +21,7 @@
                 <p class="section-description">
                     Fill out the form below and we'll get back to you as soon as possible.
                 </p>
-                <form method="post" class="contact-form">
+                <form id="contactForm" method="post" enctype="multipart/form-data" class="contact-form">
                     {% csrf_token %}
                     <div class="form-row">
                         <div class="form-group">
@@ -75,10 +75,34 @@
                             <div class="error">{{ form.message.errors }}</div>
                         {% endif %}
                     </div>
+                    <div class="form-group">
+                        <label for="{{ form.attachment.id_for_label }}">Attachment (Optional)</label>
+                        {{ form.attachment }}
+                        {% if form.attachment.help_text %}
+                            <span class="form-help">{{ form.attachment.help_text }}</span>
+                        {% endif %}
+                        {% if form.attachment.errors %}
+                            <div class="error">{{ form.attachment.errors }}</div>
+                        {% endif %}
+                        <div id="fileDisplay" class="file-display" style="display: none;">
+                            <span id="fileName"></span>
+                            <button type="button" id="removeFile" class="btn-remove-file">Remove</button>
+                        </div>
+                    </div>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Send</button>
                     </div>
                 </form>
+                
+                {% if messages %}
+                    <div class="messages-inline">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </section>

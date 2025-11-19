@@ -1,164 +1,103 @@
-// Careers Application Page JavaScript
-(function() {
-    'use strict';
-
-    // Get job title from URL parameter
-    function getJobFromURL() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const jobTitle = urlParams.get('job');
-        const jobId = urlParams.get('id');
-        
-        if (jobTitle) {
-            const jobTitleDisplay = document.getElementById('jobTitleDisplay');
-            if (jobTitleDisplay) {
-                jobTitleDisplay.textContent = decodeURIComponent(jobTitle);
-            }
-        }
-    }
+// Job Application Form - Client-side validation only (email sent via Django backend)
+document.addEventListener('DOMContentLoaded', function() {
+    const applicationForm = document.getElementById('applicationForm');
+    const resumeInput = document.getElementById('id_resume');
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
 
     // Handle file upload display
-    function initFileUpload() {
-        const fileInput = document.getElementById('resume');
-        const fileNameDisplay = document.getElementById('fileNameDisplay');
-
-        if (fileInput && fileNameDisplay) {
-            fileInput.addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    // Check file size (5MB max)
-                    const maxSize = 5 * 1024 * 1024; // 5MB in bytes
-                    if (file.size > maxSize) {
-                        alert('File size exceeds 5MB. Please choose a smaller file.');
-                        fileInput.value = '';
-                        fileNameDisplay.textContent = '';
-                        return;
-                    }
-
-                    // Check file type
-                    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-                    if (!allowedTypes.includes(file.type)) {
-                        alert('Invalid file type. Please upload a PDF, DOC, or DOCX file.');
-                        fileInput.value = '';
-                        fileNameDisplay.textContent = '';
-                        return;
-                    }
-
-                    fileNameDisplay.textContent = `Selected: ${file.name}`;
-                    fileNameDisplay.style.display = 'block';
-                } else {
+    if (resumeInput && fileNameDisplay) {
+        resumeInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                // Check file size (5MB max)
+                const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+                if (file.size > maxSize) {
+                    alert('File size exceeds 5MB. Please choose a smaller file.');
+                    resumeInput.value = '';
                     fileNameDisplay.textContent = '';
                     fileNameDisplay.style.display = 'none';
+                    return;
                 }
-            });
-        }
+
+                // Check file type
+                const allowedTypes = [
+                    'application/pdf',
+                    'application/msword',
+                    'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                ];
+                if (!allowedTypes.includes(file.type)) {
+                    alert('Invalid file type. Please upload a PDF, DOC, or DOCX file.');
+                    resumeInput.value = '';
+                    fileNameDisplay.textContent = '';
+                    fileNameDisplay.style.display = 'none';
+                    return;
+                }
+
+                fileNameDisplay.textContent = `Selected: ${file.name} (${formatFileSize(file.size)})`;
+                fileNameDisplay.style.display = 'block';
+            } else {
+                fileNameDisplay.textContent = '';
+                fileNameDisplay.style.display = 'none';
+            }
+        });
     }
 
-    // Handle form submission
-    function initFormSubmission() {
-        const form = document.getElementById('applicationForm');
-        
-        if (form) {
-            form.addEventListener('submit', function(e) {
+    // Format file size for display
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+    }
+
+    // Client-side form validation
+    if (applicationForm) {
+        applicationForm.addEventListener('submit', function(e) {
+            // Get form values
+            const fullName = document.getElementById('id_full_name') ? document.getElementById('id_full_name').value.trim() : '';
+            const email = document.getElementById('id_email') ? document.getElementById('id_email').value.trim() : '';
+            const phone = document.getElementById('id_phone') ? document.getElementById('id_phone').value.trim() : '';
+            const streetAddress = document.getElementById('id_street_address') ? document.getElementById('id_street_address').value.trim() : '';
+            const city = document.getElementById('id_city') ? document.getElementById('id_city').value.trim() : '';
+            const state = document.getElementById('id_state') ? document.getElementById('id_state').value.trim() : '';
+            const zipCode = document.getElementById('id_zip_code') ? document.getElementById('id_zip_code').value.trim() : '';
+            const visaStatus = document.getElementById('id_visa_status') ? document.getElementById('id_visa_status').value : '';
+            const resume = resumeInput ? resumeInput.files[0] : null;
+
+            // Validate form
+            if (!fullName || !email || !phone || !streetAddress || !city || !state || !zipCode || !visaStatus || !resume) {
                 e.preventDefault();
+                alert('Please fill in all required fields.');
+                return false;
+            }
 
-                // Get form data
-                const formData = new FormData(form);
-                const jobTitle = document.getElementById('jobTitleDisplay')?.textContent || 'General Application';
-                formData.append('jobTitle', jobTitle);
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                e.preventDefault();
+                alert('Please enter a valid email address.');
+                return false;
+            }
 
-                // Get job ID from URL if available
-                const urlParams = new URLSearchParams(window.location.search);
-                const jobId = urlParams.get('id');
-                if (jobId) {
-                    formData.append('jobId', jobId);
-                }
+            // Validate ZIP code format (5 digits or 5+4 format)
+            const zipRegex = /^\d{5}(-\d{4})?$/;
+            if (!zipRegex.test(zipCode)) {
+                e.preventDefault();
+                alert('Please enter a valid ZIP code (e.g., 12345 or 12345-6789).');
+                return false;
+            }
 
-                // Validate form
-                const fullName = document.getElementById('fullName').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const streetAddress = document.getElementById('streetAddress').value.trim();
-                const city = document.getElementById('city').value.trim();
-                const state = document.getElementById('state').value.trim();
-                const zipCode = document.getElementById('zipCode').value.trim();
-                const visaStatus = document.getElementById('visaStatus').value;
-                const resume = document.getElementById('resume').files[0];
+            // Validate phone format
+            const phoneDigits = phone.replace(/\D/g, '');
+            if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+                e.preventDefault();
+                alert('Please enter a valid phone number.');
+                return false;
+            }
 
-                if (!fullName || !email || !phone || !streetAddress || !city || !state || !zipCode || !visaStatus || !resume) {
-                    alert('Please fill in all required fields.');
-                    return;
-                }
-
-                // Validate ZIP code format (5 digits or 5+4 format)
-                const zipRegex = /^\d{5}(-\d{4})?$/;
-                if (!zipRegex.test(zipCode)) {
-                    alert('Please enter a valid ZIP code (e.g., 12345 or 12345-6789).');
-                    return;
-                }
-
-                // Validate email format
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email)) {
-                    alert('Please enter a valid email address.');
-                    return;
-                }
-
-                // Validate phone format (basic validation)
-                const phoneRegex = /^[\d\s\-\+\(\)]+$/;
-                if (!phoneRegex.test(phone) || phone.replace(/\D/g, '').length < 10) {
-                    alert('Please enter a valid phone number.');
-                    return;
-                }
-
-                // Show loading state
-                const submitButton = form.querySelector('button[type="submit"]');
-                const originalText = submitButton.textContent;
-                submitButton.disabled = true;
-                submitButton.textContent = 'Submitting...';
-
-                // Simulate form submission (replace with actual API call)
-                setTimeout(() => {
-                    // In a real application, you would send the formData to your server
-                    // Example: fetch('/api/apply', { method: 'POST', body: formData })
-                    
-                    console.log('Application submitted:', {
-                        jobTitle: jobTitle,
-                        fullName: fullName,
-                        email: email,
-                        phone: phone,
-                        streetAddress: streetAddress,
-                        city: city,
-                        state: state,
-                        zipCode: zipCode,
-                        visaStatus: visaStatus,
-                        resume: resume.name
-                    });
-
-                    // Show success message
-                    alert('Thank you for your application! We will review your submission and get back to you soon.');
-                    
-                    // Reset form
-                    form.reset();
-                    document.getElementById('fileNameDisplay').textContent = '';
-                    document.getElementById('fileNameDisplay').style.display = 'none';
-                    
-                    // Reset button
-                    submitButton.disabled = false;
-                    submitButton.textContent = originalText;
-
-                    // Optionally redirect to careers page
-                    // window.location.href = 'careers.html';
-                }, 1000);
-            });
-        }
+            // If all validations pass, allow form submission (Django will handle email sending)
+            return true;
+        });
     }
-
-    // Initialize when DOM is ready
-    document.addEventListener('DOMContentLoaded', function() {
-        getJobFromURL();
-        initFileUpload();
-        initFormSubmission();
-    });
-
-})();
-
+});

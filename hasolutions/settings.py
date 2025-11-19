@@ -131,18 +131,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Email Configuration
 # For development/testing without email setup, use console backend (emails print to terminal)
 # For production, set EMAIL_BACKEND to 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
 
-# SMTP Configuration (only used if EMAIL_BACKEND is 'smtp')
-EMAIL_HOST = 'smtp-mail.outlook.com'  # Outlook/Office 365 SMTP server
+# SMTP Configuration (Gmail)
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')  # Set this in environment variables (your Outlook email for sending)
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')  # Set this in environment variables (your Outlook password)
+# Use environment variables if set, otherwise use defaults below
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'hasolutionscontact@gmail.com')  # Your Gmail address
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'xufirwimuunuvbry')  # Your Gmail App Password (spaces removed)
 
-# DEFAULT_FROM_EMAIL must match EMAIL_HOST_USER for Outlook authentication
-# If EMAIL_HOST_USER is set, use it; otherwise use a default
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@hasolutions.us'))
+# DEFAULT_FROM_EMAIL must match EMAIL_HOST_USER for Gmail authentication
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER or 'noreply@hasolutions.us'
 
 # Contact form recipient (where contact form submissions are sent TO)
 CONTACT_EMAIL = 'hamza@hasolutions.us'

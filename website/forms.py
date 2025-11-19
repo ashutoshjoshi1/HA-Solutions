@@ -65,6 +65,35 @@ class ContactForm(forms.Form):
             'placeholder': 'Your message...'
         })
     )
+    attachment = forms.FileField(
+        required=False,
+        widget=forms.FileInput(attrs={
+            'class': 'form-control',
+            'accept': '.pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.gif'
+        }),
+        help_text='Optional: Upload a file (PDF, DOC, DOCX, TXT, or images). Max size: 10MB.'
+    )
+
+    def clean_attachment(self):
+        attachment = self.cleaned_data.get('attachment')
+        if attachment:
+            # Check file size (10MB max)
+            if attachment.size > 10 * 1024 * 1024:
+                raise forms.ValidationError('File size exceeds 10MB. Please choose a smaller file.')
+            # Check file type
+            allowed_types = [
+                'application/pdf',
+                'application/msword',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'text/plain',
+                'image/jpeg',
+                'image/jpg',
+                'image/png',
+                'image/gif'
+            ]
+            if attachment.content_type not in allowed_types:
+                raise forms.ValidationError('Invalid file type. Please upload a PDF, DOC, DOCX, TXT, or image file.')
+        return attachment
 
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
