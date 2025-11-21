@@ -22,7 +22,7 @@
 2. Connect GitHub repo: `HA-Solutions`
 3. Configure:
    - Name: `hasolutions-website`
-   - Branch: `FlyIO-Production`
+   - Branch: `Production-PC`
    - Runtime: `Python 3`
    - Build Command:
      ```bash
@@ -93,7 +93,7 @@ Visit: `https://hasolutions.us`
 
 **Update site:**
 ```bash
-git push origin FlyIO-Production
+git push origin Production-PC
 # Auto-deploys automatically!
 ```
 

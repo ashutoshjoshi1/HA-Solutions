@@ -17,7 +17,7 @@ mkdir Websites
 cd Websites
 git clone https://github.com/ashutoshjoshi1/HA-Solutions.git
 cd HA-Solutions
-git checkout FlyIO-Production
+git checkout Production-PC
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt

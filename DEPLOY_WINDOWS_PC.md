@@ -43,7 +43,7 @@ mkdir Websites
 cd Websites
 git clone https://github.com/ashutoshjoshi1/HA-Solutions.git
 cd HA-Solutions
-git checkout FlyIO-Production
+git checkout Production-PC
 ```
 
 ### 2.2 Create Virtual Environment
@@ -403,7 +403,7 @@ net start HA-Solutions-Nginx
 
 ```cmd
 cd C:\Websites\HA-Solutions
-git pull origin FlyIO-Production
+git pull origin Production-PC
 venv\Scripts\activate
 pip install -r requirements.txt
 python manage.py migrate

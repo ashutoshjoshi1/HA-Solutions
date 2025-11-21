@@ -17,7 +17,7 @@ This guide will help you deploy your Django website to Render for FREE with NO c
 
 ## Step 2: Prepare Your Repository
 
-Make sure your code is pushed to GitHub on the `FlyIO-Production` branch (or your preferred branch).
+Make sure your code is pushed to GitHub on the `Production-PC` branch (or your preferred branch).
 
 ## Step 3: Create PostgreSQL Database
 
@@ -46,7 +46,7 @@ Make sure your code is pushed to GitHub on the `FlyIO-Production` branch (or you
 4. Configure the service:
    - **Name:** `hasolutions-website`
    - **Region:** Choose closest to you
-   - **Branch:** `FlyIO-Production` (or your branch)
+   - **Branch:** `Production-PC` (or your branch)
    - **Root Directory:** (leave blank)
    - **Runtime:** `Python 3`
    - **Build Command:**
@@ -156,7 +156,7 @@ When you make changes:
 ```bash
 git add .
 git commit -m "Your changes"
-git push origin FlyIO-Production
+git push origin Production-PC
 ```
 
 Render automatically detects the push and redeploys! No manual action needed.
