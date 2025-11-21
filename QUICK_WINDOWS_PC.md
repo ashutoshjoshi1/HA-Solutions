@@ -9,7 +9,21 @@
 - [ ] Nginx for Windows
 - [ ] NSSM (for Windows services)
 
-### 2. Set Up Project
+### 2. Fix PowerShell Execution Policy (IMPORTANT!)
+
+If you get "running scripts is disabled" error, run this in **PowerShell as Administrator**:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Type `Y` when prompted.
+
+**OR** use Command Prompt (cmd.exe) instead of PowerShell - it doesn't have this issue.
+
+### 3. Set Up Project
+
+**In PowerShell or Command Prompt:**
 
 ```cmd
 cd C:\
@@ -19,10 +33,27 @@ git clone https://github.com/ashutoshjoshi1/HA-Solutions.git
 cd HA-Solutions
 git checkout Production-PC
 python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-pip install gunicorn
 ```
+
+**Activate virtual environment:**
+
+**In PowerShell:**
+```powershell
+venv\Scripts\activate
+```
+
+**In Command Prompt:**
+```cmd
+venv\Scripts\activate.bat
+```
+
+**Then install dependencies:**
+```cmd
+pip install -r requirements.txt
+pip install waitress
+```
+
+**Note:** We use Waitress instead of Gunicorn because Gunicorn doesn't work on Windows.
 
 ### 3. Configure Settings
 
@@ -46,17 +77,17 @@ python manage.py runserver
 
 Visit `http://localhost:8000` - should work!
 
-### 6. Set Up Gunicorn
+### 6. Set Up Waitress
 
-Create `start_gunicorn.bat`:
+Create `start_waitress.bat`:
 ```batch
 @echo off
 cd /d "C:\Websites\HA-Solutions"
 call venv\Scripts\activate
-gunicorn --bind 127.0.0.1:8000 --workers 2 hasolutions.wsgi:application
+waitress-serve --host=127.0.0.1 --port=8000 hasolutions.wsgi:application
 ```
 
-Test it works.
+Test it works: `.\start_waitress.bat`
 
 ### 7. Configure Nginx
 
@@ -69,15 +100,15 @@ Start: `nginx.exe`
 
 ```cmd
 # Install NSSM first, then:
-nssm install HA-Solutions-Gunicorn
+nssm install HA-Solutions-Waitress
 # Set path: C:\Websites\HA-Solutions\venv\Scripts\python.exe
-# Set args: -m gunicorn --bind 127.0.0.1:8000 --workers 2 hasolutions.wsgi:application
+# Set args: -m waitress --host=127.0.0.1 --port=8000 hasolutions.wsgi:application
 
 nssm install HA-Solutions-Nginx
 # Set path: C:\nginx\nginx.exe
 
 # Start services
-net start HA-Solutions-Gunicorn
+net start HA-Solutions-Waitress
 net start HA-Solutions-Nginx
 ```
 
@@ -120,7 +151,7 @@ Visit `http://hasolutions.us` (or your dynamic DNS hostname)
 services.msc
 
 # Restart services
-net restart HA-Solutions-Gunicorn
+net restart HA-Solutions-Waitress
 net restart HA-Solutions-Nginx
 
 # View Nginx logs
@@ -133,7 +164,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py collectstatic --noinput
-net restart HA-Solutions-Gunicorn
+net restart HA-Solutions-Waitress
 ```
 
 ## 🆘 Common Issues

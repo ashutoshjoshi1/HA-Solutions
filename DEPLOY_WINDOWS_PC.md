@@ -50,15 +50,61 @@ git checkout Production-PC
 
 ```cmd
 python -m venv venv
+```
+
+### 2.2.1 Fix PowerShell Execution Policy (IMPORTANT!)
+
+If you get an error "running scripts is disabled on this system" when activating, fix it:
+
+**Option A: Change Execution Policy (Recommended)**
+
+Open **PowerShell as Administrator** and run:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+Type `Y` when prompted.
+
+**Option B: Use Command Prompt Instead**
+
+If you prefer not to change PowerShell policy, use Command Prompt (cmd.exe) instead of PowerShell:
+
+```cmd
+venv\Scripts\activate.bat
+```
+
+**Option C: Bypass for Current Session Only**
+
+In PowerShell (not as admin):
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 venv\Scripts\activate
 ```
+
+### 2.2.2 Activate Virtual Environment
+
+**In PowerShell:**
+```powershell
+venv\Scripts\activate
+```
+
+**In Command Prompt:**
+```cmd
+venv\Scripts\activate.bat
+```
+
+You should see `(venv)` at the start of your prompt when activated.
 
 ### 2.3 Install Dependencies
 
 ```cmd
 pip install -r requirements.txt
-pip install gunicorn
+pip install waitress
 ```
+
+**Note:** We use Waitress instead of Gunicorn because Gunicorn doesn't work on Windows (it requires Unix-only modules). Waitress is a production-ready WSGI server that works perfectly on Windows.
 
 ### 2.4 Configure Settings
 
@@ -99,25 +145,29 @@ python manage.py runserver
 
 Visit `http://localhost:8000` to verify it works.
 
-## Step 4: Set Up Gunicorn
+## Step 4: Set Up Waitress
 
-### 4.1 Create Gunicorn Service Script
+### 4.1 Create Waitress Service Script
 
-Create `start_gunicorn.bat` in project root:
+Create `start_waitress.bat` in project root:
 
 ```batch
 @echo off
 cd /d "C:\Websites\HA-Solutions"
 call venv\Scripts\activate
-gunicorn --bind 127.0.0.1:8000 --workers 2 hasolutions.wsgi:application
+waitress-serve --host=127.0.0.1 --port=8000 hasolutions.wsgi:application
 pause
 ```
 
-### 4.2 Test Gunicorn
+**Note:** Waitress is used instead of Gunicorn because Gunicorn doesn't work on Windows. Waitress is a production-ready WSGI server that works perfectly on Windows.
+
+### 4.2 Test Waitress
 
 ```cmd
-start_gunicorn.bat
+.\start_waitress.bat
 ```
+
+Or double-click the `start_waitress.bat` file.
 
 Visit `http://localhost:8000` to verify.
 
@@ -187,18 +237,18 @@ nginx.exe
 2. Extract to `C:\nssm`
 3. Copy `nssm.exe` to `C:\Windows\System32` (or add to PATH)
 
-### 6.2 Create Gunicorn Service
+### 6.2 Create Waitress Service
 
 Open **Command Prompt as Administrator**:
 
 ```cmd
-nssm install HA-Solutions-Gunicorn
+nssm install HA-Solutions-Waitress
 ```
 
 In the GUI that opens:
 - **Path:** `C:\Websites\HA-Solutions\venv\Scripts\python.exe`
 - **Startup directory:** `C:\Websites\HA-Solutions`
-- **Arguments:** `-m gunicorn --bind 127.0.0.1:8000 --workers 2 hasolutions.wsgi:application`
+- **Arguments:** `-m waitress --host=127.0.0.1 --port=8000 hasolutions.wsgi:application`
 
 Click "Install service"
 
@@ -216,7 +266,7 @@ Click "Install service"
 ### 6.4 Start Services
 
 ```cmd
-net start HA-Solutions-Gunicorn
+net start HA-Solutions-Waitress
 net start HA-Solutions-Nginx
 ```
 
@@ -226,7 +276,7 @@ net start HA-Solutions-Nginx
 services.msc
 ```
 
-Look for "HA-Solutions-Gunicorn" and "HA-Solutions-Nginx" - they should be running.
+Look for "HA-Solutions-Waitress" and "HA-Solutions-Nginx" - they should be running.
 
 ## Step 7: Configure Windows Firewall
 
@@ -392,8 +442,8 @@ services.msc
 ### Restart Services
 
 ```cmd
-net stop HA-Solutions-Gunicorn
-net start HA-Solutions-Gunicorn
+net stop HA-Solutions-Waitress
+net start HA-Solutions-Waitress
 
 net stop HA-Solutions-Nginx
 net start HA-Solutions-Nginx
@@ -408,7 +458,7 @@ venv\Scripts\activate
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py collectstatic --noinput
-net restart HA-Solutions-Gunicorn
+net restart HA-Solutions-Waitress
 ```
 
 ## Troubleshooting
@@ -423,6 +473,7 @@ net restart HA-Solutions-Gunicorn
 - Check logs in Event Viewer
 - Verify paths in NSSM are correct
 - Run services manually to see errors
+- Make sure Waitress is installed: `pip install waitress`
 
 ### IP address changed?
 - Update Dynamic DNS
