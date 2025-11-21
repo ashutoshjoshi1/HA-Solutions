@@ -416,7 +416,7 @@ Wait 5-30 minutes for DNS propagation.
 Services should already auto-start, but verify:
 
 1. Open `services.msc`
-2. Find "HA-Solutions-Gunicorn"
+2. Find "HA-Solutions-Waitress"
 3. Right-click → **Properties**
 4. Set **Startup type** to **Automatic**
 5. Repeat for "HA-Solutions-Nginx"
@@ -431,7 +431,7 @@ services.msc
 
 ### View Logs
 
-**Gunicorn logs:**
+**Waitress logs:**
 - Check `C:\Websites\HA-Solutions\` for log files
 - Or view in Event Viewer
 
