@@ -63,6 +63,27 @@ HA-Solutions/
 - **Recruiter Portal**: CRUD operations for job postings (login required)
 - **Email Integration**: Gmail SMTP for contact and job application emails
 
+## Deployment
+
+### Fly.io (Recommended - Free & Always-On):
+See `DEPLOY_FLYIO.md` for step-by-step Fly.io deployment guide.
+Quick start: `QUICK_FLYIO.md`
+- ✅ Completely FREE
+- ✅ Always-on (no spin-downs!)
+- ✅ Free SSL certificates
+- ✅ Free custom domain
+- ✅ PostgreSQL database included
+
+### Other Free Cloud Hosting Options:
+See `FREE_HOSTING.md` for other options like Render and Railway.
+
+### For Linux Servers:
+See `DEPLOYMENT.md` for complete deployment guide.
+
+### For Windows 10 PC:
+See `DEPLOYMENT_WINDOWS.md` for Windows-specific deployment instructions.
+Quick start: `QUICK_DEPLOY_WINDOWS.md`
+
 ## Email Configuration
 
 Email settings are configured in `hasolutions/settings.py`. The system uses Gmail SMTP to send:

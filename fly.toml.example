@@ -1,0 +1,32 @@
+# fly.toml app configuration file
+# This file will be created automatically when you run `flyctl launch`
+# This is just an example - DO NOT edit manually, use `flyctl launch` instead
+
+app = "your-app-name-here"
+primary_region = "iad"  # Change to your preferred region
+
+[build]
+
+[env]
+  PORT = "8000"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+  [[http_service.checks]]
+    grace_period = "10s"
+    interval = "30s"
+    method = "GET"
+    timeout = "5s"
+    path = "/"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
+
