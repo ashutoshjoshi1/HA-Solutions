@@ -65,14 +65,33 @@ HA-Solutions/
 
 ## Deployment
 
-### Fly.io (Recommended - Free & Always-On):
+### Self-Host on Windows PC (Recommended - Free & Always-On):
+See `DEPLOY_WINDOWS_PC.md` for complete Windows PC deployment guide.
+Quick start: `QUICK_WINDOWS_PC.md`
+- ✅ Completely FREE
+- ✅ Always-on (no spin-downs!)
+- ✅ Full control
+- ✅ No limitations
+- ⚠️ PC must stay on 24/7
+- ⚠️ Requires router port forwarding
+
+### Render (Free, No Credit Card Required):
+See `DEPLOY_RENDER.md` for step-by-step Render deployment guide.
+Quick start: `QUICK_RENDER.md`
+- ✅ Completely FREE
+- ✅ NO credit card required
+- ✅ Free SSL certificates
+- ✅ Free custom domain
+- ⚠️ Spins down after 15 min inactivity (first request ~30 sec delay)
+
+### Fly.io (Free & Always-On, but requires credit card):
 See `DEPLOY_FLYIO.md` for step-by-step Fly.io deployment guide.
 Quick start: `QUICK_FLYIO.md`
 - ✅ Completely FREE
 - ✅ Always-on (no spin-downs!)
 - ✅ Free SSL certificates
 - ✅ Free custom domain
-- ✅ PostgreSQL database included
+- ⚠️ Requires credit card for verification
 
 ### Other Free Cloud Hosting Options:
 See `FREE_HOSTING.md` for other options like Render and Railway.
