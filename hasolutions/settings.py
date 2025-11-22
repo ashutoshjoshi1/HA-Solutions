@@ -170,6 +170,14 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
+# Proxy SSL header - Required when behind Nginx reverse proxy
+# This tells Django that requests are HTTPS even though Nginx forwards HTTP
+# Only enable this when behind a trusted proxy (Nginx on same server)
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    USE_X_FORWARDED_HOST = True
+    USE_X_FORWARDED_PORT = True
+
 # Fly.io specific settings
 if 'FLY' in os.environ or 'FLY_APP_NAME' in os.environ:
     # Ensure we're using the correct port
