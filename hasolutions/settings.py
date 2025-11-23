@@ -21,6 +21,16 @@ DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',') if os.environ.get('ALLOWED_HOSTS') else ['*']
 
+# CSRF Trusted Origins - Required for HTTPS with Cloudflare
+CSRF_TRUSTED_ORIGINS = [
+    'https://hasolutions.us',
+    'https://www.hasolutions.us',
+    'http://hasolutions.us',  # For development/testing
+    'http://www.hasolutions.us',  # For development/testing
+    'http://hasolutions.ddns.net',  # For direct access
+    'https://hasolutions.ddns.net',  # For direct access
+]
+
 
 # Application definition
 
@@ -149,8 +159,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # Use environment variables if set, otherwise use defaults below
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'hasolutionscontact@gmail.com')  # Your Gmail address
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'xufirwimuunuvbry')  # Your Gmail App Password (spaces removed)
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'hamzaadnan56@gmail.com')  # Your Gmail address
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'egowngsvvorhpgol')  # Your Gmail App Password (spaces removed)
 
 # DEFAULT_FROM_EMAIL must match EMAIL_HOST_USER for Gmail authentication
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER or 'noreply@hasolutions.us'
